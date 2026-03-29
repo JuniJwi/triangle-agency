@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- About Your Site                                                   -->
+  <!-- ----------------------------------------------------------------- -->
+  <link rel="shortcut icon" type="image/png" href="/charadex-rp/assets/favicon.png" />
+  <title>Charadex</title>
+  <meta name="title" content="Charadex" />
+  <meta name="type" content="website" />
+  <meta name="url" content="/" />
+  <meta name="image" content="/charadex-rp/assets/meta.png" />
+  <meta name="description" content="" />
+
+  <!-- No AI scraping directives -->
+  <meta name="robots" content="noai" />
+  <meta name="robots" content="noimageai" />
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Styles                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Optional Styles                                                   -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="/charadex-rp/styles/css/charadex.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Domine:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+
+<body id="charadex-body" class="d-flex">
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Header                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+  <div class="load-html" data-source="/charadex-rp/includes/header.html"></div>
+  <div class="loading text-primary"><i class="fa-solid fa-hourglass fa-spin fa-spin-reverse"></i></div>
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Main Container                                                    -->
+  <!-- ----------------------------------------------------------------- -->
+  <div id="main-container" class="container d-flex order-md-2 order-3">
+    <div id="gallery-card" class="flex-grow-1 mx-md-3 mx-0 softload">
+
+      <!-- --------------------------------------------------------------- -->
+      <!-- Content                                                         -->
+      <!-- --------------------------------------------------------------- -->
+
+      <!-- Design Gallery -->
+      <div class="card bg-body-tertiary card-body mb-4">
+        <div id="charadex-gallery">
+          <h1 class="text-center"><a href="characters">Newest Characters</a></h1>
+          <div class="row charadex-list list m-n2"></div>
+        </div>
+      </div>
+
+      <!-- Prompts Gallery -->
+      <div class="card bg-body-tertiary card-body">
+        <div id="prompt-gallery">
+          <h1 class="text-center"><a href="prompts">Recent prompts</a></h1>
+          <div class="row prompt-list list m-n2"></div>
+        </div>
+      </div>
+      <!-- --------------------------------------------------------------- -->
+      <!-- End of Content                                                  -->
+      <!-- --------------------------------------------------------------- -->
+       
+    </div> <!-- End of gallery-card -->
+  </div> <!-- End of main-container -->
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Footer                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+  <div class="load-html" data-source="/charadex-rp/includes/footer.html"></div>
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Repeat Items                                                      -->
+  <!-- Do not remove 'display:none;'                                     -->
+  <!-- ----------------------------------------------------------------- -->
+  <div style="display: none">
+    <!-- --------------------------------------------------------------- -->
+    <!-- Gallery Item - Character Thumb                                  -->
+    <!-- --------------------------------------------------------------- -->
+    <div class="col-md-3 col-6 p-2" id="charadex-gallery-item">
+      <div class="card bg-body-tertiary h-100">
+        <div class="card-header text-center d-flex">
+          <div class="m-auto z-1">
+            <a class="stretched-link profileid profilelink" href=""></a>
+          </div>
+        </div>
+        <div class="card-body cd-gallery-card d-flex flex-column flex-fill">
+          <img class="img-thumbnail img-fluid refthumbnail m-auto" src="" alt="Character thumbnail.">
+        </div>
+        <div class="card-footer text-muted">
+          <div class="row">
+            <div class="col player"></div>
+            <div class="col-auto categorybadge"></div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End of Character Thumb -->
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- Gallery Items - Prompt Thumb                                      -->
+    <!-- ----------------------------------------------------------------- -->
+    <div class="col-md-6 p-2 mb-4" id="prompt-gallery-item">
+      <div class="card bg-body-tertiary h-100">
+        <div class="card-header text-center d-flex">
+          <div class="m-auto z-1">
+            <a class="stretched-link profileid profilelink" href=""></a>
+          </div>
+        </div>
+        <div class="card-body d-flex flex-column flex-fill">
+          <div class="summary mb-auto"></div>
+        </div>
+        <div class="card-footer text-muted">
+          <div class="row m-n1 px-3">
+            <div class="col p-1"><b>Start Date:</b> <span class="startdate"></span></div>
+            <div class="col p-1"><b>End Date:</b> <span class="enddate"></span></div>
+          </div>
+          <div class="categorybadge"></div>
+        </div>
+      </div>
+    </div> <!-- End of Prompt Thumb -->
+
+  </div> <!-- End of Repeat Items -->
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- JS                                                                -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+
+  <!-- Showdown.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Multiselect -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@v1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+
+  <!-- Charadex Script -->
+  <script src="/charadex-rp/styles/js/pages/base.js" type="module"></script>
+  <script src="/charadex-rp/styles/js/pages/index.js" type="module"></script>
+  
+</body>
+
+</html>

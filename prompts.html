@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- About Your Site                                                   -->
+  <!-- ----------------------------------------------------------------- -->
+  <link rel="shortcut icon" type="image/png" href="/charadex-rp/assets/favicon.png" />
+  <title>Charadex Prompts</title>
+  <meta name="title" content="Charadex Prompts" />
+  <meta name="type" content="website" />
+  <meta name="url" content="/" />
+  <meta name="image" content="/charadex-rp/assets/meta.png" />
+  <meta name="description" content="">
+
+  <!-- No AI scraping directives -->
+  <meta name="robots" content="noai">
+  <meta name="robots" content="noimageai">
+
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Styles                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Multiselect CSS -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select@v1.14.0-beta2/dist/css/bootstrap-select.min.css">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Optional Styles                                                   -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="/charadex-rp/styles/css/charadex.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Domine:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+
+<body id="prompt-body" class="d-flex">
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Header                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+  <div class="load-html" id="header" data-source="/charadex-rp/includes/header.html"></div>
+  <div class="loading text-primary"><i class="fa-solid fa-hourglass fa-spin fa-spin-reverse"></i></div>
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Main Container                                                    -->
+  <!-- ----------------------------------------------------------------- -->
+  <div id="main-container" class="container d-flex order-md-2 order-3">
+    <div id="prompt-gallery" class="w-100 d-flex flex-column softload">
+
+      <!-- ----------------------------------------------------------------- -->
+      <!-- UI                                                                -->
+      <!-- ----------------------------------------------------------------- -->
+      <div id="prompt-options" class="mx-md-3 mx-0 mb-2">
+
+        <!-- Title -->
+        <h1 class="text-center"><a href="/charadex-rp/prompts">Prompt List</a></h1>
+
+        <!-- Faux Folders -->
+        <div style="display:none;" id="prompt-folder-container">
+          <div class="row mb-2" id="prompt-folders"></div>
+          <!-- Button Items -->
+          <div style="display:none;">
+            <div class="col-md-4 col-6 p-1" id="prompt-folder">
+              <a class="btn btn-primary d-block" href=""></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div style="display:none;" id="prompt-filter-container">
+          <div class="row mb-2 gy-2" id="prompt-filters"></div>
+          <!-- Filter Items -->
+          <div style="display: none;">
+            <div class="col-md-4 col-12" id="prompt-filter">
+              <label class="px-2"></label>
+              <select class="form-control" multiple data-actions-box="true" data-icon-base="fa-solid"
+                data-tick-icon="fa-check"></select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search -->
+        <div style="display:none;" id="prompt-search-container">
+          <div class="row mb-2">
+            <!-- Search Filter -->
+            <div class="col-md-4 col-6" style="display: none;">
+              <label class="px-2" for="prompt-search-filter">Search for</label>
+              <select id="prompt-search-filter" class="form-control form-select"
+                aria-label="Select search parameter."></select>
+            </div>
+            <!-- Search Bar -->
+            <div class="col">
+              <label class="px-2" for="prompt-search">Search</label>
+              <input class="form-control search" type="search" placeholder="Search" id="prompt-search">
+            </div>
+          </div>
+        </div>
+
+        <!-- ----------------------------------------------------------------- -->
+        <!-- Pagination                                                        -->
+        <!-- ----------------------------------------------------------------- -->
+        <div style="display: none;" class="prompt-pagination-container">
+          <nav class="d-flex justify-content-center align-items-center">
+            <a class="btn-prev px-1"><i class="fa fa-chevron-left"></i></a>
+            <ul class="pagination prompt-pagination prompt-pagination-top justify-content-center mb-0"></ul>
+            <a class="btn-next px-1"><i class="fa fa-chevron-right"></i></a>
+          </nav>
+        </div>
+
+        <!-- ----------------------------------------------------------------- -->
+        <!-- Prev & Next Topbar                                                -->
+        <!-- ----------------------------------------------------------------- -->
+        <div style="display: none;" id="prompt-prevnext-container">
+          <div class="row px-2 text-uppercase">
+            <div class="col-6 px-1">
+              <a id="entryPrev" href=""><i class="fas fa-chevron-left me-2"></i><b><span></span></b></a>
+            </div>
+            <div class="col-6 px-1 text-end order-md-1">
+              <a id="entryNext" href=""><b><span></span></b><i class="fas fa-chevron-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end of ui -->
+
+      <div id="gallery-card" class="card bg-body-tertiary flex-grow-1 mx-md-3 mx-0">
+        <div class="card-body">
+        <!-- ----------------------------------------------------------------- -->
+        <!-- List Items Render Here                                            -->
+        <!-- ----------------------------------------------------------------- -->
+          <div class="row prompt-list list m-n2"></div>
+
+          <!-- ----------------------------------------------------------------- -->
+          <!-- Pagination                                                        -->
+          <!-- ----------------------------------------------------------------- -->
+          <div style="display: none;" class="prompt-pagination-container">
+            <nav class="d-flex justify-content-center align-items-center">
+              <a class="btn-prev px-1"><i class="fa fa-chevron-left"></i></a>
+              <ul class="pagination prompt-pagination prompt-pagination-bottom justify-content-center mb-0"></ul>
+              <a class="btn-next px-1"><i class="fa fa-chevron-right"></i></a>
+            </nav>
+          </div>
+        </div>
+
+      </div> <!-- End of gallery-card -->
+    </div> <!-- End of prompt-gallery -->
+  </div> <!-- End of main-container -->
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Footer                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+  <div class="load-html" id="footer" data-source="/charadex-rp/includes/footer.html"></div>
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Repeat Items                                                      -->
+  <!-- Do not remove 'display:none;'                                     -->
+  <!-- ----------------------------------------------------------------- -->
+  <div style="display:none;">
+    <!-- ----------------------------------------------------------------- -->
+    <!-- Gallery Items - Prompt Thumb                                      -->
+    <!-- ----------------------------------------------------------------- -->
+    <div class="col-md-6 p-2" id="prompt-gallery-item">
+      <div class="card bg-body-tertiary h-100">
+        <div class="card-header text-center d-flex">
+          <div class="m-auto z-1">
+            <a class="stretched-link profileid profilelink" href=""></a>
+          </div>
+        </div>
+        <div class="card-body d-flex flex-column flex-fill">
+          <div class="summary mb-auto"></div>
+        </div>
+        <div class="card-footer text-muted">
+          <div class="row m-n1 px-3">
+            <div class="col p-1"><b>Start Date:</b> <span class="startdate"></span></div>
+            <div class="col p-1"><b>End Date:</b> <span class="enddate"></span></div>
+          </div>
+          <div class="categorybadge"></div>
+        </div>
+      </div>
+    </div> <!-- End of Prompt Thumb -->
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- Gallery Profile - Prompt Card                                     -->
+    <!-- ----------------------------------------------------------------- -->
+    <div class="col-12 prompt-body" id="prompt-profile">
+
+      <!-- Hero Image -->
+      <div class="cd-hero-title m-1 cd-prompt-background">
+        <!-- Header -->
+        <div class="profileid m-auto"></div>
+      </div>
+
+      <!-- Summary -->
+      <hr>
+      <div class="text-center summary"></div>
+
+      <!-- Dates -->
+      <hr>
+      <div class="row align-items-center mb-2">
+        <div class="col-md-2 col-6 ps-0 text-end text-truncate span-header">
+          Start Date
+        </div>
+        <div class="col-md-4 col-6 text-center">
+          <span class="startdate"></span>
+        </div>
+        <div class="col-md-2 col-6 ps-0 text-end text-truncate span-header">
+          End Date
+        </div>
+        <div class="col-md-4 col-6 text-center">
+          <span class="enddate"></span>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Body -->
+      <div class="description my-4"></div>
+
+      <!-- Link -->
+      <p class="text-end">
+        <a class="btn btn-primary link" href="" role="button">
+          Submit<i class="fas fa-circle-chevron-right fa-fw ms-2"></i>
+        </a>
+      </p>
+
+    </div> <!-- End of Prompt Card -->
+
+  </div> <!-- End of Repeat Items -->
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- JS                                                                -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+
+  <!-- Showdown.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Multiselect -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@v1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+
+  <!-- Charadex Script -->
+  <script src="/charadex-rp/styles/js/pages/base.js" type="module"></script>
+  <script src="/charadex-rp/styles/js/pages/prompts.js" type="module"></script>
+
+
+</body>
+
+</html>

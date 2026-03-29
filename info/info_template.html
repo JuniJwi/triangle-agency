@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- About Your Site                                                   -->
+  <!-- ----------------------------------------------------------------- -->
+  <link rel="shortcut icon" type="image/png" href="/charadex-rp/assets/favicon.png" />
+  <title>Charadex</title>
+  <meta name="title" content="Charadex" />
+  <meta name="type" content="website" />
+  <meta name="url" content="/" />
+  <meta name="image" content="/charadex-rp/assets/meta.png" />
+  <meta name="description" content="">
+
+  <!-- No AI scraping directives -->
+  <meta name="robots" content="noai">
+  <meta name="robots" content="noimageai">
+
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Styles                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Optional Styles                                                   -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="/charadex-rp/styles/css/charadex.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Domine:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="charadex-body" class="d-flex">
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Header                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+  <div class="load-html" data-source="/charadex-rp/includes/header.html"></div>
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Main Container                                                    -->
+  <!-- ----------------------------------------------------------------- -->
+  <div id="main-container" class="container d-flex order-md-2 order-3">
+    <div id="main-card" class="card bg-body-tertiary flex-grow-1 mx-md-3 mx-0">
+
+      <!-- ----------------------------------------------------------------- -->
+      <!-- Content                                                           -->
+      <!-- ----------------------------------------------------------------- -->
+      <div class="card-body">
+
+        <h1 id="info"><a href="#info">Info</a></h1>
+
+        <p>
+          A generic info page. You can copy paste this html file to make more, just be sure to add links to them
+          elsewhere (such as in the header). Some commonly used html elements are used in this top section.
+        </p>
+        <p>
+          The url will be your base url, plus <code>/info/filename</code>. For example, this
+          page's url is
+          <br><a
+            href="https://junijwi.github.io/charadex-rp/info/info_template">https://junijwi.github.io/charadex-rp/info/info_template</a>
+        </p>
+
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+        <h1 id="header"><a href="#header">Anchor Header</a></h1>
+        <p>
+          This is a paragraph.
+        </p>
+        <p class="text-center">
+          This is a center aligned paragraph.
+        </p>
+        <p class="text-end">
+          This is a right aligned paragraph.
+        </p>
+        <hr>
+        <p>
+          This text is <strong>bolded</strong>, <em>italics</em> (aka emphasized), <u>underlined</u>, <s>struck
+            through</s>...
+          <br>This is a single line break.
+          <br>This text is <span class="text-success">colored using a span tag and bootstrap color classes.</span>
+        </p>
+        <div class="alert alert-primary" role="alert">
+          <i class="fa-solid fa-circle-exclamation"></i> A simple alert can create small notifications.
+        </div>
+        <ul>
+          <li>Unordered lists...</li>
+          <li>Appear like this.</li>
+        </ul>
+        <ol>
+          <li>Ordered lists...</li>
+          <li>Appear like this.</li>
+        </ol>
+
+        <p>
+          Read the <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap Documentation</a>
+          or check out <a href="https://fontawesome.com/">Fontawesome</a> for more things you can do.
+        </p>
+        <p>
+          Or, feel free to custom code your own CSS classes.
+        </p>
+
+        <hr>
+
+        <h1>Bootstrap Classes</h1>
+        <p>These classes are from bootstrap! This section is used to test that the CSS style sheet is being applied
+          correctly.</p>
+
+        <hr>
+        <h2>Colors</h2>
+        <hr>
+
+        <div class="row justify-content-center">
+          <!--- primary --->
+          <div class="col-md-4 p-2">
+            <div class="card card-body h-100">
+              <code>text-primary</code>
+              <div><strong class="text-primary">Lorem ipsum</strong></div>
+              <code>bg-primary</code>
+              <div class="bg-primary p-3"></div>
+              <code>btn-primary</code>
+              <a class="btn btn-primary w-100">button</a>
+              <code>btn-outline-primary</code>
+              <a class="btn btn-outline-primary w-100">button</a>
+            </div>
+          </div>
+          <!--- secondary --->
+          <div class="col-md-4 p-2">
+            <div class="card card-body h-100">
+              <code>text-secondary</code>
+              <div><strong class="text-secondary">Lorem ipsum</strong></div>
+              <code>bg-secondary</code>
+                <div class="bg-secondary p-3"></div>
+              <code>btn-secondary</code>
+              <a class="btn btn-secondary w-100">button</a>
+              <code>btn-outline-secondary</code>
+              <a class="btn btn-outline-secondary w-100">button</a>
+            </div>
+          </div>
+          <!--- success --->
+          <div class="col-md-4 p-2">
+            <div class="card card-body h-100">
+              <code>text-success</code>
+              <div><strong class="text-success">Lorem ipsum</strong></div>
+              <code>bg-success</code>
+              <div class="bg-success p-3"></div>
+              <code>btn-success</code>
+              <a class="btn btn-success w-100">button</a>
+              <code>btn-outline-success</code>
+              <a class="btn btn-outline-success w-100">button</a>
+            </div>
+          </div>
+          <!--- danger --->
+          <div class="col-md-4 p-2">
+            <div class="card card-body h-100">
+              <code>text-danger</code>
+              <div><strong class="text-danger">Lorem ipsum</strong></div>
+              <code>bg-danger</code>
+              <div class="bg-danger p-3"></div>
+              <code>btn-danger</code>
+              <a class="btn btn-danger w-100">button</a>
+              <code>btn-outline-danger</code>
+              <a class="btn btn-outline-danger w-100">button</a>
+            </div>
+          </div>
+          <!--- warning --->
+          <div class="col-md-4 p-2">
+            <div class="card card-body h-100">
+              <code>text-warning</code>
+              <div><strong class="text-warning">Lorem ipsum</strong></div>
+              <code>bg-warning</code>
+              <div class="bg-warning p-3"></div>
+              <code>btn-warning</code>
+              <a class="btn btn-warning w-100">button</a>
+              <code>btn-outline-warning</code>
+              <a class="btn btn-outline-warning w-100">button</a>
+            </div>
+          </div>
+          <!--- info --->
+          <div class="col-md-4 p-2">
+            <div class="card card-body h-100">
+              <code>text-info</code>
+              <div><strong class="text-info">Lorem ipsum</strong></div>
+              <code>bg-info</code>
+              <div class="bg-info p-3"></div>
+              <code>btn-info</code>
+              <a class="btn btn-info w-100">button</a>
+              <code>btn-outline-info</code>
+              <a class="btn btn-outline-info w-100">button</a>
+            </div>
+          </div>
+          <!--- misc text --->
+          <div class="col-md-3 p-2">
+            <div class="card card-body h-100">
+              <code>text-body</code>
+              <div><strong class="text-body">Lorem ipsum</strong></div>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <div class="card card-body h-100">
+              <code>text-muted</code>
+              <div><strong class="text-muted">Lorem ipsum</strong></div>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <div class="card card-body h-100">
+              <code>text-dark</code>
+              <div><strong class="text-dark">Lorem ipsum</strong></div>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <div class="card card-body h-100">
+              <code>text-light</code>
+              <div><strong class="text-light bg-dark">Lorem ipsum</strong></div>
+            </div>
+          </div>
+          <!--- misc bgs --->
+          <div class="row small justify-content-center">
+            <div class="col-md-3 p-3 mb-2 bg-primary text-white">.bg-primary</div>
+            <div class="col-md-3 p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+            <div class="col-md-3 p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-success text-white">.bg-success</div>
+            <div class="col-md-3 p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-danger text-white">.bg-danger</div>
+            <div class="col-md-3 p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+            <div class="col-md-3 p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-info text-dark">.bg-info</div>
+            <div class="col-md-3 p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-light text-dark">.bg-light</div>
+            <div class="col-md-3 p-3 mb-2 bg-light-subtle text-light-emphasis">.bg-light-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-dark text-white">.bg-dark</div>
+            <div class="col-md-3 p-3 mb-2 bg-dark-subtle text-dark-emphasis">.bg-dark-subtle</div>
+            <div class="col-md-3 p-3 mb-2 bg-body-secondary">.bg-body-secondary</div>
+            <div class="col-md-3 p-3 mb-2 bg-body-tertiary">bg-body-tertiary</div>
+            <div class="col-md-3 p-3 mb-2 bg-body text-body">.bg-body</div>
+            <div class="col-md-3 p-3 mb-2 bg-black text-white">.bg-black</div>
+            <div class="col-md-3 p-3 mb-2 bg-white text-dark">.bg-white</div>
+            <div class="col-md-3 p-3 mb-2 bg-transparent text-body">.bg-transparent</div>
+          </div>
+          <!--- alerts --->
+          <div class="col-6 p-2">
+            <code>alert-primary</code>
+            <div class="alert alert-primary mb-0">
+              <p>Text <a href="#" class="alert-link">Link</a></p>
+            </div>
+          </div>
+          <div class="col-6 p-2">
+            <code>alert-secondary</code>
+            <div class="alert alert-secondary mb-0">
+              <p>Text <a href="#" class="alert-link">Link</a></p>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <code>alert-success</code>
+            <div class="alert alert-success mb-0">
+              <p>Text <a href="#" class="alert-link">Link</a></p>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <code>alert-danger</code>
+            <div class="alert alert-danger mb-0">
+              <p>Text <a href="#" class="alert-link">Link</a></p>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <code>alert-warning</code>
+            <div class="alert alert-warning mb-0">
+              <p>Text <a href="#" class="alert-link">Link</a></p>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <code>alert-info</code>
+            <div class="alert alert-info mb-0">
+              <p>Text <a href="#" class="alert-link">Link</a></p>
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <div class="text-primary">This is default primary text</div>
+            <div class="text-primary text-opacity-75">This is 75% opacity primary text</div>
+            <div class="text-primary text-opacity-50">This is 50% opacity primary text</div>
+            <div class="text-primary text-opacity-25">This is 25% opacity primary text</div>
+          </div>
+        </div>
+
+        <hr>
+        <h2>Cards</h2>
+        <hr>
+
+        <!--- card pieces --->
+        <div class="row justify-content-center">
+          <div class="col-md-3 p-2">
+            <code>card list-group</code>
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <code>card-header</code>, <code>card-body</code>
+            <div class="card">
+              <div class="card-header p-2">Header</div>
+              <div class="card-body p-2">Body</div>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <code>card-title</code>, <code>card-footer</code>
+            <div class="card">
+              <div class="card-body p-2">
+                <h5 class="card-title">Card title</h5>
+              </div>
+              <div class="card-footer p-2">Footer</div>
+            </div>
+          </div>
+          <div class="col-md-3 p-2">
+            <code>card-img-top</code>, <code>card-img-bottom</code>
+            <div class="card">
+              <img class="card-img-top" src="https://placehold.co/150x50" alt="placeholder card image">
+              <div class="card-body p-2">Body</div>
+              <img class="card-img-bottom" src="https://placehold.co/150x50" alt="placeholder card image">
+            </div>
+          </div>
+          <!--- borders --->
+          <div class="col-md-4 p-2">
+            <code>border-primary</code>
+            <div class="card border-primary p-4">
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>border-secondary</code>
+            <div class="card border-secondary p-4">
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>border-success</code>
+            <div class="card border-success p-4">
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>border-danger</code>
+            <div class="card border-danger p-4">
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>border-warning</code>
+            <div class="card border-warning p-4">
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>border-info</code>
+            <div class="card border-info p-4">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <div class="card text-bg-primary mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Primary Card</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card text-bg-secondary mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Secondary Card</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card text-bg-success mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Success Card</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card text-bg-danger mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Danger Card</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card text-bg-warning mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Warning Card</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card text-bg-info mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Info Card</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card text-bg-light mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Light Card</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card text-bg-dark mb-3">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Dark Card</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <h2>Tabs</h2>
+        <hr>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                  type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                  type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                  type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane"
+                  type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false"
+                  disabled>Disabled</button>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis, nulla malesuada
+                hendrerit auctor, purus nunc dapibus tortor, a laoreet sem justo sagittis dolor.</div>
+              <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                tabindex="0">
+                Curabitur et eros non orci interdum euismod. Donec cursus sem at lorem viverra sollicitudin. Suspendisse
+                neque nunc, dapibus quis bibendum in, dignissim a ex.</div>
+              <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                tabindex="0">
+                Nunc sagittis elit nec dolor blandit convallis. In cursus vitae diam eget fermentum. Nullam viverra
+                molestie
+                efficitur.</div>
+              <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab"
+                tabindex="0">
+                Sed blandit metus eu orci elementum, nec iaculis velit bibendum. Cras velit arcu, luctus at mollis eu,
+                vulputate tempor orci.</div>
+            </div>
+          </div>
+        </div>
+        <!-- pills -->
+        <div class="d-flex align-items-start">
+          <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+              type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+              type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+            <button class="nav-link" id="v-pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#v-pills-disabled"
+              type="button" role="tab" aria-controls="v-pills-disabled" aria-selected="false" disabled>Disabled</button>
+          </div>
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"
+              tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Praesent iaculis, nulla malesuada
+              hendrerit auctor, purus nunc dapibus tortor, a laoreet sem justo sagittis dolor.</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"
+              tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis, nulla malesuada
+              hendrerit auctor, purus nunc dapibus tortor, a laoreet sem justo sagittis dolor.</div>
+            <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab"
+              tabindex="0">Curabitur et eros non orci interdum euismod. Donec cursus sem at lorem viverra
+              sollicitudin.
+              Suspendisse neque nunc, dapibus quis bibendum in, dignissim a ex.</div>
+          </div>
+        </div>
+
+
+        <hr>
+        <h2>Tables</h2>
+        <hr>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>John</td>
+              <td>Doe</td>
+              <td>@social</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <h2>Progress Bars</h2>
+        <hr>
+
+        <div class="row">
+          <div class="col-md-4 p-2">
+            <code>progress-bar</code>
+            <div class="progress">
+              <div class="progress-bar" style="width: 25%;"></div>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>progress-bar-striped</code>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped" style="width: 25%;"></div>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>progress-bar-animated</code>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 25%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <h2>Misc</h2>
+        <hr>
+        <div class="row">
+          <div class="col-md-4 p-2">
+            <code>img-thumbnail</code>
+            <img class="img-thumbnail" src="https://placehold.co/200">
+            <br>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>badge</code>
+            <div>
+              <span class="badge bg-primary">Primary</span>
+              <span class="badge bg-secondary">Secondary</span>
+              <span class="badge bg-success">Success</span>
+              <span class="badge bg-danger">Danger</span>
+              <span class="badge bg-warning text-dark">Warning</span>
+              <span class="badge bg-info text-dark">Info</span>
+              <span class="badge bg-light text-dark">Light</span>
+              <span class="badge bg-dark">Dark</span>
+            </div>
+            <code>badge-pill</code>
+            <div>
+              <span class="badge rounded-pill bg-primary">Primary</span>
+              <span class="badge rounded-pill bg-secondary">Secondary</span>
+              <span class="badge rounded-pill bg-success">Success</span>
+              <span class="badge rounded-pill bg-danger">Danger</span>
+              <span class="badge rounded-pill bg-warning text-dark">Warning</span>
+              <span class="badge rounded-pill bg-info text-dark">Info</span>
+              <span class="badge rounded-pill bg-light text-dark">Light</span>
+              <span class="badge rounded-pill bg-dark">Dark</span>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <code>tooltip</code>
+            <!-- note that if you want to use tooltips, you must also copy paste the tooltip script at the bottom -->
+            <div class="d-flex">
+              <a class="btn btn-secondary justify-content-center align-items-center me-2"
+                data-bs-toggle="tooltip" data-bs-custom-class="cd-tooltip"
+                title="top" data-bs-placement="top">
+                <i class="fa-solid fa-up-long"></i>
+              </a>
+              <a class="btn btn-secondary justify-content-center align-items-center me-2"
+                data-bs-toggle="tooltip" data-bs-custom-class="cd-tooltip"
+                title="bottom" data-bs-placement="bottom">
+                <i class="fa-solid fa-down-long"></i>
+              </a>
+              <a class="btn btn-secondary justify-content-center align-items-center me-2"
+                data-bs-toggle="tooltip" data-bs-custom-class="cd-tooltip"
+                title="left" data-bs-placement="left">
+                <i class="fa-solid fa-left-long"></i>
+              </a>
+              <a class="btn btn-secondary justify-content-center align-items-center"
+                data-bs-toggle="tooltip" data-bs-custom-class="cd-tooltip"
+                title="right" data-bs-placement="right">
+                <i class="fa-solid fa-right-long"></i>
+              </a>
+            </div>
+            <span>
+            </span>
+          </div>
+        </div>
+
+      </div> 
+      <!-- --------------------------------------------------------------- -->
+      <!-- End of Content                                                  -->
+      <!-- --------------------------------------------------------------- -->
+       
+    </div> <!-- End of main-card -->
+  </div> <!-- End of main-container -->
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- Footer                                                            -->
+  <!-- ----------------------------------------------------------------- -->
+  <div class="load-html" data-source="/charadex-rp/includes/footer.html"></div>
+
+  <!-- ----------------------------------------------------------------- -->
+  <!-- JS                                                                -->
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+
+  <!-- Showdown.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <!-- Charadex Script -->
+  <script src="/charadex-rp/styles/js/pages/base.js" type="module"></script>
+
+  <!-- Tooltips -->
+  <script>
+    $(document).ready(function () {
+      $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+  </script>
+
+</body>
+
+</html>
