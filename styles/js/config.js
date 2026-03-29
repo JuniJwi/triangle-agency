@@ -11,9 +11,9 @@ let charadex = {};
 /* Any preview links will still show Charadex's information
 /* --------------------------------------------------------------- */
 charadex.site = {
-  title: 'Charadex: RP',
-  url: 'https://junijwi.github.io/charadex-rp/',
-  description: `Charadex: RP is a roleplay group site base that tracks character profiles, currencies, inventories, prompts, and lore!`
+  title: 'Junijwi - Triangle Agency',
+  url: 'https://junijwi.github.io/triangle-agency/',
+  description: `Tracking characters and events in junijwi's Triangle Agency campaign.`
 }
 
 /* --------------------------------------------------------------- */
@@ -23,7 +23,7 @@ charadex.site = {
 /* --------------------------------------------------------------- */
 charadex.sheet = {
 
-  id: '1VHPmKI2mkyQCg2HPe4zXzK8YmhvGRcIrXf0qXoiwRUo',
+  id: '1QOs1dk5JD7euJ9KqeZhDV6U2EbjXcbGJY2VWXJz-w-I',
 
   pages: { // these should match your sheet names, but in lowercase
     masterlist:    'characters',
