@@ -33,7 +33,7 @@ charadex.sheet = {
     items:         'items',
     prompts:       'prompts',
     lore:          'lore',
-    visualnovel:   'visualnovel',
+    chapters:   'chapters',
   },
 
   options: { // available options for values in your sheets used in search filters
@@ -601,20 +601,20 @@ charadex.page.player = {
 
 
 /* --------------------------------------------------------------- */
-/* visualnovel.html
+/* chapters.html
 /* --------------------------------------------------------------- */
-charadex.page.visualnovel = {
+charadex.page.chapters = {
 
   // Dex Set Up
-  sheetPage: charadex.sheet.pages.visualnovel,
-  sitePage: 'visualnovel',
+  sheetPage: charadex.sheet.pages.chapters,
+  sitePage: 'chapters',
   dexSelector: 'charadex',
-  profileProperty: 'chapter',
+  profileProperty: 'title',
 
   // Dex Options
   sort: {
     toggle: true,
-    sortProperty: 'id',
+    sortProperty: 'title',
     order: 'asc',
     parameters: []
   },
@@ -626,8 +626,10 @@ charadex.page.visualnovel = {
   },
 
   filters: {
-    toggle: false,
-    parameters: {}
+    toggle: true,
+    parameters: {
+      'Category': charadex.sheet.options.category,
+    }
   },
 
   fauxFolder: {
@@ -639,41 +641,29 @@ charadex.page.visualnovel = {
   search: {
     toggle: true,
     filterToggle: true,
-    parameters: ['Chapter']
+    parameters: ['Title', 'Characters']
   },
 
   prevNext: {
     toggle: true,
   },
 
-  fillBlanks: [],
-
-  markdownColumns: [
-    'text',
+  fillBlanks: [
+    'summary',
   ],
 
-  badgeColumns: {},
+  markdownColumns: [
+    'summary',
+  ],
 
-
-  // Related Data
-  relatedData: {
-
-    [charadex.sheet.pages.masterlist]: {
-
-      // This imports the config from the masterlist
-      // So you dont have to repeat yourself
-      ...charadex.page.masterlist, 
-
-      sheetPage: charadex.sheet.pages.masterlist,
-      sitePage: 'characters',
-      primaryProperty: 'username', // name of field of the calling page to search by
-      relatedProperty: 'player',   // name of column to search in related page
-      dexSelector: 'charadex',
-      profileProperty: 'name',     // name of found record of the related page
-      profileToggle: false,
-
-    }
-
+  badgeColumns: {
+    category: {               // name of the column
+      one: 'bg-one',      // value: 'style'
+      two: 'bg-two',      // value: 'style'
+      three: 'bg-three',  // value: 'style'
+      four: 'bg-four',     // value: 'style'
+      five: 'bg-five',      // value: 'style'
+    },
   },
 
 };
