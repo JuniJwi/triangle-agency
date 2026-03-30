@@ -33,6 +33,7 @@ charadex.sheet = {
     items:         'items',
     prompts:       'prompts',
     lore:          'lore',
+    visualnovel:   'visualnovel',
   },
 
   options: { // available options for values in your sheets used in search filters
@@ -289,7 +290,7 @@ charadex.page.lore = {
 
   badgeColumns: {},
 
-}
+};
 
 
 /* --------------------------------------------------------------- */
@@ -594,6 +595,86 @@ charadex.page.player = {
     },
 
   }
+
+};
+
+
+
+/* --------------------------------------------------------------- */
+/* visualnovel.html
+/* --------------------------------------------------------------- */
+charadex.page.visualnovel = {
+
+  // Dex Set Up
+  sheetPage: charadex.sheet.pages.visualnovel,
+  sitePage: 'visualnovel',
+  dexSelector: 'charadex',
+  profileProperty: 'chapter',
+
+  // Dex Options
+  sort: {
+    toggle: true,
+    sortProperty: 'id',
+    order: 'asc',
+    parameters: []
+  },
+
+  pagination: {
+    toggle: true,
+    bottomToggle: true,
+    amount: 24,
+  },
+
+  filters: {
+    toggle: false,
+    parameters: {}
+  },
+
+  fauxFolder: {
+    toggle: false,
+    folderProperty: '',
+    parameters: [],
+  },
+
+  search: {
+    toggle: true,
+    filterToggle: true,
+    parameters: ['Chapter']
+  },
+
+  prevNext: {
+    toggle: true,
+  },
+
+  fillBlanks: [],
+
+  markdownColumns: [
+    'text',
+  ],
+
+  badgeColumns: {},
+
+
+  // Related Data
+  relatedData: {
+
+    [charadex.sheet.pages.masterlist]: {
+
+      // This imports the config from the masterlist
+      // So you dont have to repeat yourself
+      ...charadex.page.masterlist, 
+
+      sheetPage: charadex.sheet.pages.masterlist,
+      sitePage: 'characters',
+      primaryProperty: 'username', // name of field of the calling page to search by
+      relatedProperty: 'player',   // name of column to search in related page
+      dexSelector: 'charadex',
+      profileProperty: 'name',     // name of found record of the related page
+      profileToggle: false,
+
+    }
+
+  },
 
 };
 
