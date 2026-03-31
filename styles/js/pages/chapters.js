@@ -98,6 +98,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     order -= 1;
     if (order < 0) {
       scene -= 1;
+      if (scene < 0) {
+        scene = 0;
+      }
       order = chapterDialogue[scene].length - 1;
     }
     console.log("Prev clicked:", `${char}, ${order}, ${scene}`);
@@ -113,6 +116,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (order >= chapterDialogue[scene].length) {
         order = 0;
         scene += 1;
+        if (scene >= chapterDialogue.length) {
+          scene = 0;
+        }
       }
     }
     console.log("Next clicked:", `${char}, ${order}, ${scene}`);
