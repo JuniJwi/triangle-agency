@@ -72,18 +72,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         let char = 0; // number of characters visible
 
-        // functions
-        var $container = $('#container');
-        var $text = $('#text');
-        var temp = $text.text();
-
-        if ($speech.height() < chapterDialogue[scene][order].text.slice(0, char).outerHeight()) {
-          while($container.height() < $text.outerHeight()) {
-            temp = temp.substr(0, temp.length-1)
-            $text.text(temp + '...');
-          }
-        }
-
         function updateView() {
           const dialogue = chapterDialogue[scene][order];
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
