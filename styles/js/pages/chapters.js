@@ -94,11 +94,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         function updateView() {
           const dialogue = chapterDialogue[scene][order];
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
-          if (dialogue.rightaligned) {
-            $spriteframe.addClass('text-end');
-          } else { 
-            $spriteframe.removeClass('text-end'); 
-          }
+          $spriteframe.removeClass('text-start');
+          $spriteframe.removeClass('text-center');
+          $spriteframe.removeClass('text-end');
+          $spriteframe.addClass(dialogue.alignment);
           $background.css('background-image',`url("${dialogue.background}")`);
           $speaker.html(characterSprites[dialogue.character]['speaker']);
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
