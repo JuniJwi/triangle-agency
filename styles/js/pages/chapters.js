@@ -20,14 +20,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // chapter title from url arguments
         let pageParameter = charadex.url.getUrlParameters().get('profile');
+
         // gather dialogue with the same chapter title
-        let dialogue = [];
-        for (item in listData.profileArray) {
-          if (item.title == pageParameter) {
-            dialogue.append(item);
-          }
-        }
-        console.log(dialogue);
+        let dialogueData = await charadex.importSheet('dialogue');
+
+        let chapterDialogue = dialogueData.filter((dialogue) => dialogue['chapter'] == pageParameter);
+        console.log(chapterDialogue);
 
       }
   });

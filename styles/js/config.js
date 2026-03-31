@@ -33,7 +33,7 @@ charadex.sheet = {
     items:         'items',
     prompts:       'prompts',
     lore:          'lore',
-    chapters:   'chapters',
+    chapters:      'chapters',
   },
 
   options: { // available options for values in your sheets used in search filters
