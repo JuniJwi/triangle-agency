@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           // we need to put it back into array form
           let relSplit = profile.relationships.split(';;;');
           
-          const numCols = 5;
+          const numCols = 8; // Name, Hide,	Updated,	Network Lvl,	Relationship,	Bonus,	Bonus Description,	Description
           let relElement = '';
 
           for (let i = 0; i < relSplit.length; i += numCols) {
@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", async () => {
               let charLink = charadex.url.addUrlParameters(
                 charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
                 { profile: charadex.tools.scrub(rel[0]) });
-              let relTitle = rel[3] ? rel[3] : '--';
-              let relText = rel[4] ? charadex.manageData.convertMarkdown(rel[4]) : `<span class="text-muted">--</span>`;
+              let relTitle = rel[4] ? rel[4] : '--';
+              let relText = rel[7] ? charadex.manageData.convertMarkdown(rel[7]) : `<span class="text-muted">--</span>`;
               // Create the DOM elements
               relElement += `<div class="col-md-4 col-12 p-2">
                               <div class="card bg-body-tertiary h-100">
