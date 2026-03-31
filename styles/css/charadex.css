@@ -626,9 +626,21 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 /* ------------------------------------------------------------- */
 /* Bullets
 /* ------------------------------------------------------------- */
+ul li:before {
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0da";
+  margin-right: 0.3rem;
+}
+/*
 ul {
   list-style-type: "▶";
 }
+*/
 ul li::marker {
   color: var(--bs-secondary) !important;
 }
