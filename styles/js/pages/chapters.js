@@ -35,11 +35,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           characterSprites[character.name] = {};
 
           // add the speaker title
-          characterSprites[character.name]['speaker'] = `<a class="btn btn-primary btn-sm" data-bs-toggle="popover" data-bs-html="true"
-                                                            data-bs-title="<a href='${charLink}' target='_blank'>${character.name}</a>"
-                                                            data-bs-content="${character.summary}">
-                                                              <h1 class="m-1">${character.name}</h1>
-                                                            </a>`;
+          characterSprites[character.name]['profilelink'] = charLink;
+          characterSprites[character.name]['summary'] = character.summary;
 
           // default sprite
           const neutral = character['neutral'] ? character['neutral'] : "https://placehold.co/100x100/";
@@ -102,8 +99,20 @@ document.addEventListener("DOMContentLoaded", async () => {
           $spriteframe.removeClass('text-end');
           $spriteframe.addClass(dialogue.alignment);
           $background.css('background-image',`url("${dialogue.background}")`);
-          $speaker.html(characterSprites[dialogue.character]['speaker']);
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
+          // create speaker element and append it
+          var h1 = document.createElement('h1');
+          h1.setAttribute('class', 'm-1');
+          h1.textContent(dialogue.character);
+          var speakerlabel = document.createElement("a");
+          speakerlabel.setAttribute('class', 'btn btn-primary btn-sm');
+          speakerlabel.setAttribute('data-bs-toggle', 'popover');
+          speakerlabel.setAttribute('data-bs-html', 'true');
+          speakerlabel.setAttribute('data-bs-title', `<a href='${characterSprites[dialogue.character]['profilelink']}'>${dialogue.character}</a>`);
+          speakerlabel.setAttribute('data-bs-content', characterSprites[dialogue.character]['summary']);
+          speakerlabel.appendChild(h1);
+          $speaker.empty();
+          $speaker.appendChild(speakerlabel);
           // init popovers
           $('[data-bs-toggle="popover"]').popover();
         }
