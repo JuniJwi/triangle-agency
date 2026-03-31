@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // get character portrait information
         let characterData = await charadex.importSheet('characters');
         for (const character of characterData) {
-
+          characterSprites[character.name] = {};
           const neutral = character['neutral'] ? character['neutral'] : "https://placehold.co/100x100/";
 
           for (const emotion in charadex.sheet.options.emotions) {
