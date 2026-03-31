@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   let scene = 0;
   let order = 0;
 
-  const speed = 4; // speed of text scroll
   let char = 0; // number of characters visible
   let charTimer;
 
@@ -80,13 +79,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     $speaker.text(dialogue.character);
     $speech.html('');
     charTimer = setInterval(() => {
-      char += speed;
+      char += 1;
       $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
 
       if (char >= chapterDialogue[scene][order].text.length) {
         clearInterval(charTimer);
       }
-    }, 250);
+    }, 100);
   }
 
   function sceneChange() {
