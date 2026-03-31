@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           characterSprites[character.name] = {};
 
           // add the speaker title
-          characterSprites[character.name]['speaker'] = `<a data-bs-toggle="popover" data-bs-html="html"
+          characterSprites[character.name]['speaker'] = `<a data-bs-toggle="popover" data-bs-html="true"
                                                             data-bs-title="<a href="${charLink}">${character.name}</a>"
                                                             data-bs-content="${character.summary}">
                                                               <h1 class="card-title m-1">${character.name}</h1>
