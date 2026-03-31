@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           speakerlabel.setAttribute('data-bs-content', characterSprites[dialogue.character]['summary']);
           speakerlabel.appendChild(h1);
           $speaker.empty();
-          $speaker.appendChild(speakerlabel);
+          $speaker.append(speakerlabel);
           // init popovers
           $('[data-bs-toggle="popover"]').popover();
         }
