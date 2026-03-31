@@ -26,7 +26,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         // ---------------------------//
         let characterData = await charadex.importSheet('characters');
         for (const character of characterData) {
+          // make character profile url
+          let charLink = charadex.url.addUrlParameters(
+            charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
+            { profile: charadex.tools.scrub(character.name) });
+          
+          // characterSprites holds character information for sprites and stuff
           characterSprites[character.name] = {};
+
+          // add the speaker title
+          characterSprites[character.name]['speaker'] = `<a data-bs-toggle="popover" data-bs-html="html" `
+            + `data-bs-title="<a href="${charLink}">${character.name}</a>"`
+            + `data-bs-content="${character.summary}"><h1 class="card-title m-1">${character.name}</h1></a>`
+          };
+
+          // default sprite
           const neutral = character['neutral'] ? character['neutral'] : "https://placehold.co/100x100/";
 
           for (const emotion of charadex.sheet.options.emotions) {
@@ -85,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             $spriteframe.removeClass('text-end'); 
           }
           $background.css('background-image',`url("${dialogue.background}")`);
-          $speaker.text(dialogue.character);
+          $speaker.html(characterSprites[dialogue.character]['speaker']);
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
         }
 
