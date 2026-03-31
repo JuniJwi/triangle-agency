@@ -26,6 +26,25 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         lore.fancytags = fancyTagArr.join(' ');
 
+        // Make character links link to profile pages
+        lore["mvplink"] = `<a href="${charadex.url.addUrlParameters(
+          charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
+          { profile: charadex.tools.scrub(lore.mvp) })}">${lore.mvp}</a>`;
+
+        lore["probationlink"] = `<a href="${charadex.url.addUrlParameters(
+          charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
+          { profile: charadex.tools.scrub(lore.probation) })}">${lore.probation}</a>`;
+
+        lore.participation = lore.participation ? lore.participation.split(', ') : [];
+        let participationArr = [];
+        for (let participant of lore.participation) {
+          const url = charadex.url.addUrlParameters(
+            charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
+            { profile: charadex.tools.scrub(participant) }
+          );
+          participationArr.push(`<a href="${url}">${participant}</a>`);
+        }
+        lore["participationlinks"] = participationArr.join(' ');
       }
   });
 

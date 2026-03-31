@@ -284,10 +284,22 @@ charadex.page.lore = {
 
   markdownColumns: [
     'summary',
-    'content',
+    'behavior',
+    'focus',
+    'domain',
+    'looseends',
+    'optionalobjectives',
+    'notes',
   ],
 
-  badgeColumns: {},
+  badgeColumns: {
+    category: {
+      captured: 'bg-danger',
+      escaped: 'bg-info',
+      neutralized: 'bg-warning',
+      other: 'bg-light',
+    },
+  },
 
 };
 
