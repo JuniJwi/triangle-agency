@@ -37,8 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           // add the speaker title
           characterSprites[character.name]['speaker'] = `<a data-bs-toggle="popover" data-bs-html="html" `
             + `data-bs-title="<a href="${charLink}">${character.name}</a>"`
-            + `data-bs-content="${character.summary}"><h1 class="card-title m-1">${character.name}</h1></a>`
-          };
+            + `data-bs-content="${character.summary}"><h1 class="card-title m-1">${character.name}</h1></a>`;
 
           // default sprite
           const neutral = character['neutral'] ? character['neutral'] : "https://placehold.co/100x100/";
