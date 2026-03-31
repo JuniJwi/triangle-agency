@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // gather dialogue with the same chapter title
         let dialogueData = await charadex.importSheet('dialogue');
-        dialogueData = dialogueData.filter((dialogue) => dialogue['chapter'] == pageParameter);
+        dialogueData = dialogueData.filter((dialogue) => charadex.tools.scrub(dialogue['chapter']) == pageParameter);
         
         dialogueData = charadex.manageData.sortArray(dialogueData, 'order');
 
