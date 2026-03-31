@@ -72,23 +72,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   let char = 0; // number of characters visible
   let charTimer;
 
-  function charIncrement(dialogue) {
+
+  function updateView() {
+    const dialogue = chapterDialogue[scene][order];
+    $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
+    $background.css('background-image',`url("${dialogue.background}")`);
+    $speaker.text(dialogue.character);
     charTimer = setInterval(() => {
       char += speed;
-      $speaker.html(charadex.manageData.convertMarkdown(dialogue.text.slice(char)));
+      $speaker.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(char)));
 
       if (char >= chapterDialogue[scene][order].text.length) {
         clearInterval(charTimer);
       }
     }, 1000);
-  }
-
-  function updateView(dialogue) {
-    $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
-    $background.css('background-image',`url("${dialogue.background}")`);
-    $speaker.text(dialogue.character);
-    $speaker.html(charadex.manageData.convertMarkdown(dialogue.text.slice(char)));
-    charIncrement();
   }
 
   function sceneChange() {
@@ -104,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       order = chapterDialogue[scene].length - 1;
     }
     console.log("Prev clicked:", `${char}, ${order}, ${scene}`);
-    updateView(chapterDialogue[scene][order]);
+    updateView();
   });
   $('#next-button').on('click', function(e) {
     e.preventDefault();
@@ -119,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
     console.log("Next clicked:", `${char}, ${order}, ${scene}`);
-    updateView(chapterDialogue[scene][order]);
+    updateView();
   });
 
   // show page
