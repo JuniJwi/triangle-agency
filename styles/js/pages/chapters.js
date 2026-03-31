@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (char >= chapterDialogue[scene][order].text.length) {
         clearInterval(charTimer);
       }
-    }, 100);
+    }, 50);
   }
 
   function sceneChange() {
