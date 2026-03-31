@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         lore.fancytags = fancyTagArr.join(' ');
 
         // Make character links link to profile pages
-        lore["mvpprofiles"] = `<a href="${charadex.url.addUrlParameters(
+        lore["mvpprofiles"] = `<a class="btn btn-primary" href="${charadex.url.addUrlParameters(
           charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
           { profile: charadex.tools.scrub(lore.mvp) })}">${lore.mvp}</a>`;
 
-        lore["probationprofiles"] = `<a href="${charadex.url.addUrlParameters(
+        lore["probationprofiles"] = `<a class="btn btn-info" href="${charadex.url.addUrlParameters(
           charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
           { profile: charadex.tools.scrub(lore.probation) })}">${lore.probation}</a>`;
 
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
             { profile: charadex.tools.scrub(participant) }
           );
-          participationArr.push(`<a href="${url}">${participant}</a>`);
+          participationArr.push(`<a class="btn btn-warning" href="${url}">${participant}</a>`);
         }
         lore["participationprofiles"] = participationArr.join(' ');
       }
