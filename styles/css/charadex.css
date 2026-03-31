@@ -872,7 +872,9 @@ p:last-child {
 
 /* Other custom stuff */
 #background {
-  height: 400px;
+  max-width: 600px;
+  min-height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }

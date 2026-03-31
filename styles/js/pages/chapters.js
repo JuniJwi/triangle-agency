@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (listData.type == 'profile') {
         // we are viewing the content of the chapter chapter
 
-        // get character portrait information
+        // -------------------------- //
+        // get character portraits
+        // ---------------------------//
         let characterData = await charadex.importSheet('characters');
         for (const character of characterData) {
           characterSprites[character.name] = {};
@@ -34,6 +36,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         console.log("CHARACTER SPRITES:", characterSprites);
 
+        // -------------------------- //
+        // gather dialogue
+        // ---------------------------//
         // chapter title from url arguments
         let pageParameter = charadex.url.getUrlParameters().get('profile');
 
@@ -66,29 +71,36 @@ document.addEventListener("DOMContentLoaded", async () => {
         let order = 0;
 
         let char = 0; // number of characters visible
-        let charTimer;
 
+        // functions
+        var $container = $('#container');
+        var $text = $('#text');
+        var temp = $text.text();
+
+        if ($speech.height() < chapterDialogue[scene][order].text.slice(0, char).outerHeight()) {
+          while($container.height() < $text.outerHeight()) {
+            temp = temp.substr(0, temp.length-1)
+            $text.text(temp + '...');
+          }
+        }
 
         function updateView() {
           const dialogue = chapterDialogue[scene][order];
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
+          if (dialogue.rightaligned) {
+            $sprite.addClass('ms-auto');
+          } else { $sprite.removeCalss('ms-auto'); }
           $background.css('background-image',`url("${dialogue.background}")`);
           $speaker.text(dialogue.character);
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
-          charTimer = setInterval(() => {
-            char += 2;
-            $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
-
-            if (char >= chapterDialogue[scene][order].text.length) {
-              clearInterval(charTimer);
-            }
-          }, 50);
         }
+
 
         function sceneChange() {
           // fade to black, change scene, then reveal again
         }
 
+        // control buttons
         $('#prev-button').on('click', function(e) {
           e.preventDefault();
           char = 0;
@@ -127,6 +139,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         // show page
         updateView(chapterDialogue[scene][order]);
 
+        // set frame timer
+        charTimer = setInterval(() => {
+          char += 2;
+          $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
+        }, 50);
       }
   });
 
