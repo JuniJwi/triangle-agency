@@ -79,14 +79,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                               <div class="card bg-body-tertiary h-100">
                                 <div class="card-header text-center d-flex">
                                   <div class="m-auto z-1">
-                                    <a class="stretched-link" href="${charLink}">${rel[0]} (${relTitle})</a>
+                                    <a href="${charLink}"><h3 class="card-title mb-0">${rel[0]} (${relTitle})</h3></a>
                                   </div>
                                 </div>
                                 <div class="card-body d-flex flex-column flex-fill">
                                   <div>${relText}</div>
-                                  <h3 class="span-header text-warning">${bonusTitle}</h3>
-                                  <div>${networked}</div>
-                                  <div>${bonusText}</div>
+                                  <div class="alert alert-warning mt-2 mb-0 px-3 py-2">
+                                    <h3 class="span-header text-center text-warning mb-0">${bonusTitle}</h3>
+                                    <div class="text-center text-warning">${networked}</div>
+                                    <div>${bonusText}</div>
+                                  </div>
                                 </div>
                                 <div class="card-footer text-muted small">
                                   <div class="row">
