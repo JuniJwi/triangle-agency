@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           // add the speaker title
           characterSprites[character.name]['speaker'] = `<a class="btn btn-primary btn-sm" data-bs-toggle="popover" data-bs-html="true"
-                                                            data-bs-title="<a href='${charLink}' target="_blank">${character.name}</a>"
+                                                            data-bs-title="<a href='${charLink}' target='_blank'>${character.name}</a>"
                                                             data-bs-content="${character.summary}">
                                                               <h1 class="m-1">${character.name}</h1>
                                                             </a>`;
@@ -92,6 +92,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         // functions
         // ---------------------------//
         function updateView() {
+          // clear popovers
+          $("[data-toggle='popover']").popover('dispose');
+          // update scene
           const dialogue = chapterDialogue[scene][order];
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
           $spriteframe.removeClass('text-start');
@@ -103,8 +106,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
           // init popovers
           $('[data-bs-toggle="popover"]').popover();
-          // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-          // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
         }
 
         function sceneChange() {
