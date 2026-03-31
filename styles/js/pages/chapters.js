@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     $speaker.text(dialogue.character);
     charTimer = setInterval(() => {
       char += speed;
-      $speaker.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(char)));
+      $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
 
       if (char >= chapterDialogue[scene][order].text.length) {
         clearInterval(charTimer);
