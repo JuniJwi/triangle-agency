@@ -878,8 +878,11 @@ p:last-child {
   background-size: cover;
   background-position: center;
 }
+#sprite {
+  object-fit: cover;
+  height: 200px;
+}
 #speaker {
-  position: relative;
-  bottom: 0;
-  left: 0;
+  position: absolute;
+  top: 160px;
 }

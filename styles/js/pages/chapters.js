@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // ---------------------------//
         function updateView() {
           // clear popovers
-          $("[data-toggle='popover']").popover('dispose');
+          $("[data-bs-toggle='popover']").popover('dispose');
           // update scene
           const dialogue = chapterDialogue[scene][order];
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
