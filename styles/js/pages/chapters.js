@@ -80,7 +80,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
           if (dialogue.rightaligned) {
             $sprite.addClass('ms-auto');
-          } else { $sprite.removeCalss('ms-auto'); }
+            $sprite.removeClass('me-auto');
+          } else { 
+            $sprite.removeClass('ms-auto'); 
+            $sprite.addClass('me-auto');
+          }
           $background.css('background-image',`url("${dialogue.background}")`);
           $speaker.text(dialogue.character);
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
