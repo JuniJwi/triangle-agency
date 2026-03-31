@@ -871,6 +871,9 @@ p:last-child {
 }
 
 /* Other custom stuff */
+#vn-buttons {
+  max-width: 600px;
+}
 #background {
   max-width: 600px;
   min-height: 400px;

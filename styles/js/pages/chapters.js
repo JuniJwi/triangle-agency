@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // set frame timer
         setInterval(() => {
-          char += 2;
+          char *= 1.5;
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
         }, 50);
       }
