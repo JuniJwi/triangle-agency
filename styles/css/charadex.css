@@ -198,7 +198,7 @@ h6 { font-size: var(--cd-header-min-size); }
   --cd-btn-class-color-rgb: var(--bs-success-rgb);
 }
 .btn-info, .btn-outline-info {
-  --cd-btn-text-color: var(--bs-black);
+  --cd-btn-text-color: var(--bs-white);
   --cd-btn-class-color: var(--bs-info);
   --cd-btn-class-color-rgb: var(--bs-info-rgb);
 }
