@@ -869,3 +869,10 @@ p:last-child {
 #item-gallery .list .card-body img {
   max-height: 200px;
 }
+
+/* Other custom stuff */
+#background {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
