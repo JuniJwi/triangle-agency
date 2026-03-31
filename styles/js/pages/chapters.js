@@ -35,9 +35,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           characterSprites[character.name] = {};
 
           // add the speaker title
-          characterSprites[character.name]['speaker'] = `<a data-bs-toggle="popover" data-bs-html="html" `
-            + `data-bs-title="<a href="${charLink}">${character.name}</a>"`
-            + `data-bs-content="${character.summary}"><h1 class="card-title m-1">${character.name}</h1></a>`;
+          characterSprites[character.name]['speaker'] = `<a data-bs-toggle="popover" data-bs-html="html"
+                                                            data-bs-title="<a href="${charLink}">${character.name}</a>"
+                                                            data-bs-content="${character.summary}">
+                                                              <h1 class="card-title m-1">${character.name}</h1>
+                                                            </a>`;
 
           // default sprite
           const neutral = character['neutral'] ? character['neutral'] : "https://placehold.co/100x100/";
@@ -100,6 +102,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           $background.css('background-image',`url("${dialogue.background}")`);
           $speaker.html(characterSprites[dialogue.character]['speaker']);
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
+          // init popovers
+          $('[data-bs-toggle="popover"]').popover();
+          // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+          // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
         }
 
         function sceneChange() {
