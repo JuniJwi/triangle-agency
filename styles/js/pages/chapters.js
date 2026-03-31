@@ -30,7 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         dialogueData = charadex.manageData.sortArray(dialogueData, 'order');
 
         for (const dialogue of dialogueData) {
-          chapterDialogue[dialogue.chapter].extend(dialogue);
+          if (dialogue.chapter in chapterDialogue) {
+            chapterDialogue[dialogue.chapter].extend(dialogue);
+          } else {
+            chapterDialogue[dialogue.chapter] = [dialogue];
+          }
         }
 
         console.log("DIALOGUE DATA:", chapterDialogue);
