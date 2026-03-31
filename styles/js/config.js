@@ -279,7 +279,13 @@ charadex.page.lore = {
   fillBlanks: [
     'title',
     'summary',
-    'content',
+    'behavior',
+    'focus',
+    'domain',
+    'looseends',
+    'optionalobjectives',
+    'notes',
+    'grade',
   ],
 
   markdownColumns: [
@@ -293,7 +299,7 @@ charadex.page.lore = {
   ],
 
   badgeColumns: {
-    category: {
+    status: {
       captured: 'bg-danger',
       escaped: 'bg-info',
       neutralized: 'bg-warning',

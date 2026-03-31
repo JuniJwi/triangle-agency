@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       for (let lore of arr) {
 
         // Make the tags pretty and actually work <3
-        lore.tags = lore.tags ? lore.tags.split(',') : [];
+        lore.tags = lore.tags ? lore.tags.split(', ') : [];
         let fancyTagArr = [];
         if (lore.tags.length >= 1) {
           for (let tag of lore.tags) {
@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         lore.fancytags = fancyTagArr.join(' ');
 
         // Make character links link to profile pages
-        lore["mvplink"] = `<a href="${charadex.url.addUrlParameters(
+        lore["mvpprofiles"] = `<a href="${charadex.url.addUrlParameters(
           charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
           { profile: charadex.tools.scrub(lore.mvp) })}">${lore.mvp}</a>`;
 
-        lore["probationlink"] = `<a href="${charadex.url.addUrlParameters(
+        lore["probationprofiles"] = `<a href="${charadex.url.addUrlParameters(
           charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
           { profile: charadex.tools.scrub(lore.probation) })}">${lore.probation}</a>`;
 
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           );
           participationArr.push(`<a href="${url}">${participant}</a>`);
         }
-        lore["participationlinks"] = participationArr.join(' ');
+        lore["participationprofiles"] = participationArr.join(' ');
       }
   });
 
