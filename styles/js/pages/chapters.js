@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
     $background.css('background-image',`url("${dialogue.background}")`);
     $speaker.text(dialogue.character);
-    $speech.html('');
+    $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
     charTimer = setInterval(() => {
       char += 1;
       $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
