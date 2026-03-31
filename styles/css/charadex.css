@@ -507,7 +507,7 @@ body {
 
 /* Navbar "Brand" aka title/logo */
 .navbar .navbar-brand {
-  color: var(--bs-primary);
+  color: var(--bs-dark);
   font-size: var(--cd-header-max-size);
   font-weight: bold;
   transition: color 0.2s ease-in-out;
@@ -526,7 +526,7 @@ body {
 
 /* Navbar Links */
 .navbar .navbar-nav .nav-link {
-  color: var(--bs-link-color);
+  color: var(--bs-dark);
   font-size: 1.5em;
   font-weight: bold;
 }
