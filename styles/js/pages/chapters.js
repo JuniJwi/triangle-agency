@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         updateView(chapterDialogue[scene][order]);
 
         // set frame timer
-        charTimer = setInterval(() => {
+        setInterval(() => {
           char += 2;
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
         }, 50);
