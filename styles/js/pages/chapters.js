@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
     $background.css('background-image',`url("${dialogue.background}")`);
     $speaker.text(dialogue.character);
+    $speech.html('');
     charTimer = setInterval(() => {
       char += speed;
       $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (char >= chapterDialogue[scene][order].text.length) {
         clearInterval(charTimer);
       }
-    }, 1000);
+    }, 250);
   }
 
   function sceneChange() {
@@ -116,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (order >= chapterDialogue[scene].length) {
         order = 0;
         scene += 1;
-        if (scene >= chapterDialogue.length) {
+        if (scene >= Object.keys(chapterDialogue).length) {
           scene = 0;
         }
       }
