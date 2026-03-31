@@ -116,6 +116,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           $speaker.append(speakerlabel);
           // init popovers
           $('[data-bs-toggle="popover"]').popover();
+          $('[data-bs-toggle="popover"]').on('keydown', function (e) {
+            e.preventDefault();
+            if (e.code === "Enter") {
+              $(this).popover('toggle');
+            }
+          });
         }
 
         function sceneChange() {
@@ -166,7 +172,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           checkNext();
           updateView();
         });
-        document.addEventListener("keydown", (e) => {
+        document.addEventListener('keydown', (e) => {
           if (e.code === "ArrowLeft") {
             e.preventDefault();
             checkPrevious();
