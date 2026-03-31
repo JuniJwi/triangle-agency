@@ -884,5 +884,6 @@ p:last-child {
 }
 #speaker {
   position: absolute;
-  top: 160px;
+  top: 165px;
+  left: 0;
 }
