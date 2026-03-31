@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           // create speaker element and append it
           var h1 = document.createElement('h1');
           h1.setAttribute('class', 'm-1');
-          h1.textContent(dialogue.character);
+          h1.textContent = dialogue.character;
           var speakerlabel = document.createElement("a");
           speakerlabel.setAttribute('class', 'btn btn-primary btn-sm');
           speakerlabel.setAttribute('data-bs-toggle', 'popover');
