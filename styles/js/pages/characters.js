@@ -61,22 +61,32 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             if (rel[1] === 'FALSE') { // hiding = FALSE
               // Set the character link
-              let charLink = charadex.url.addUrlParameters(
+              const charLink = charadex.url.addUrlParameters(
                 charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
                 { profile: charadex.tools.scrub(rel[0]) });
-              let relTitle = rel[4] ? rel[4] : '--';
-              let relText = rel[7] ? charadex.manageData.convertMarkdown(rel[7]) : `<span class="text-muted">--</span>`;
+              const relTitle = rel[4] ? rel[4] : '--';
+              const relText = rel[7] ? charadex.manageData.convertMarkdown(rel[7]) : `<span class="text-muted">--</span>`;
+              const bonusTitle = rel[5] ? rel[5] : '--';
+              const bonusText = rel[6] ? charadex.manageData.convertMarkdown(rel[6]) : `<span class="text-muted">--</span>`;
+              let networked = '';
+              if (!isNaN(rel[3])) {
+                const pipfilled = `<i class="fa-solid fa-circle fa-xs"></i>`
+                const pipempty = `<i class="fa-regular fa-circle fa-xs"></i>`
+                networked = pipfilled.repeat(Number(rel[3])) + pipempty.repeat(9 - Number(rel[3]));
+              }
               // Create the DOM elements
               relElement += `<div class="col-md-4 col-12 p-2">
                               <div class="card bg-body-tertiary h-100">
                                 <div class="card-header text-center d-flex">
                                   <div class="m-auto z-1">
-                                    <a class="stretched-link" href="${charLink}">${rel[0]}</a>
+                                    <a class="stretched-link" href="${charLink}">${rel[0]} (${relTitle})</a>
                                   </div>
                                 </div>
                                 <div class="card-body d-flex flex-column flex-fill">
-                                  <h3 class="span-header">${relTitle}</h3>
                                   <div>${relText}</div>
+                                  <h3 class="span-header text-warning">${bonusTitle}</h3>
+                                  <div>${networked}</div>
+                                  <div>${bonusText}</div>
                                 </div>
                                 <div class="card-footer text-muted small">
                                   <div class="row">
