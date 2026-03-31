@@ -8,6 +8,8 @@ import { charadex } from '../charadex.js';
 /* Load
 ======================================================================= */
 document.addEventListener("DOMContentLoaded", async () => {
+  let chapterDialogue = {};
+
   let dex = await charadex.initialize.page(
     null,
     charadex.page.chapters,
@@ -27,13 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         dialogueData = charadex.manageData.sortArray(dialogueData, 'order');
 
-        let chapterDialogue = {};
-        // {
-        //    1: [{
-        //          count
-        //       }]
-        // }
-        for (dialogue of dialogueData) {
+        for (const dialogue of dialogueData) {
           chapterDialogue[dialogue.chapter].extend(dialogue);
         }
 
