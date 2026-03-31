@@ -42,6 +42,7 @@ charadex.sheet = {
     category: ['All', 'One', 'Two', 'Three', 'Four', 'Five'],
     subcategory: ['All', 'One', 'Two', 'Three', 'Four', 'Five'],
     itemTypes: ['All', 'Currency', 'Voucher', 'Achievement', 'Gatcha', 'Misc'],
+    emotions: ['Neutral', 'Happy', 'Manic', 'Angry', 'Sad', 'Nervous', 'Stressed', 'Embarrassed', 'Skeptical', 'Signature'],
   }
 
 }

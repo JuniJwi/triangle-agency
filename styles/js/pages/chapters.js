@@ -8,6 +8,7 @@ import { charadex } from '../charadex.js';
 /* Load
 ======================================================================= */
 document.addEventListener("DOMContentLoaded", async () => {
+  let characterSprites = {};
   let chapterDialogue = {};
 
   let dex = await charadex.initialize.page(
@@ -19,6 +20,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log("LIST DATA:", listData); 
       if (listData.type == 'profile') {
         // we are viewing the content of the chapter chapter
+
+        // get character portrait information
+        let characterData = await charadex.importSheet('characters');
+        for (const character of characterData) {
+
+          const neutral = character['neutral'] ? character['neutral'] : "https://placehold.co/100x100/";
+
+          for (emotion in charadex.sheet.options.emotions) {
+            characterSprites[character.name][emotion] = character[emotion] ? character[emotion] : neutral;
+          }
+        }
+
+        console.log("CHARACTER SPRITES:", characterSprites);
 
         // chapter title from url arguments
         let pageParameter = charadex.url.getUrlParameters().get('profile');
@@ -47,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ---------------------------//
   // select game objects
   let $sprite = $('#sprite');;
-  let $environment = $('#environment');
+  let $background = $('#background');
   let $speaker = $('#speaker');
   let $speech = $('#speech');
 
@@ -57,6 +71,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   const speed = 4; // speed of text scroll
   let char = 0; // number of characters visible
 
+  function updateView(dialogue) {
+    $sprite.attr('href', characterSprites[dialogue.character][dialogue.emotion]);
+  }
+  function sceneChange(url) {
+    // fade to black, change scene, then reveal again
+    $background.css('background-image',`url("${url}")`);
+  }
 
   $('#prev-button').on('click', () => {
     char = 0;
