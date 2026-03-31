@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         for (const dialogue of dialogueData) {
           if (dialogue.scene in chapterDialogue) {
-            chapterDialogue[dialogue.scene].append(dialogue);
+            chapterDialogue[dialogue.scene].push(dialogue);
           } else {
             chapterDialogue[dialogue.scene] = [dialogue];
           }
