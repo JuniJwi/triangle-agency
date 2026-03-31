@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         dialogueData = charadex.manageData.sortArray(dialogueData, 'order');
 
         for (const dialogue of dialogueData) {
-          if (dialogue.chapter in chapterDialogue) {
-            chapterDialogue[dialogue.chapter].extend(dialogue);
+          if (dialogue.scene in chapterDialogue) {
+            chapterDialogue[dialogue.scene].append(dialogue);
           } else {
-            chapterDialogue[dialogue.chapter] = [dialogue];
+            chapterDialogue[dialogue.scene] = [dialogue];
           }
         }
 
@@ -53,20 +53,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let scene = 0;
   let order = 0;
-  let ix = 0;
 
   const speed = 4; // speed of text scroll
   let char = 0; // number of characters visible
 
 
   $('#prev-button').on('click', () => {
+    char = 0;
+    order -= 1;
+    if (order < 0) {
+      scene -= 1;
+      order = chapterDialogue[scene].length - 1;
+    }
   });
   $('#next-button').on('click', () => {
-    if (char < chapterDialogue[ix].text.length) {
-      char = chapterDialogue[ix].text.length;
+    if (char < chapterDialogue[scene][order].text.length) {
+      char = chapterDialogue[scene][order].text.length;
     } else {
       char = 0;
-      ix += 1;
+      order += 1;
+      if (order >= chapterDialogue[scene].length) {
+        order = 0;
+        scene += 1;
+      }
     }
   });
 
