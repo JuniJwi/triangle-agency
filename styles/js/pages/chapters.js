@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           const neutral = character['neutral'] ? character['neutral'] : "https://placehold.co/100x100/";
 
           for (const emotion of charadex.sheet.options.emotions) {
-            characterSprites[character.name][emotion] = character[emotion] ? character[emotion] : neutral;
+            characterSprites[character.name][emotion] = character[charadex.tools.scrub(emotion)] ? character[charadex.tools.scrub(emotion)] : neutral;
           }
         }
 
