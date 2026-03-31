@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let scene = 0;
         let order = 0;
 
-        let char = 0; // number of characters visible
+        let char = 1; // number of characters visible
 
         // -------------------------- //
         // functions
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         
         function checkPrevious() {
-          char = 0;
+          char = 1;
           order -= 1;
           if (order < 0) {
             scene -= 1;
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           if (char < chapterDialogue[scene][order].text.length) {
             char = chapterDialogue[scene][order].text.length;
           } else {
-            char = 0;
+            char = 1;
             order += 1;
             if (order >= chapterDialogue[scene].length) {
               order = 0;
