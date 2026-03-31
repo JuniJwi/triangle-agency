@@ -220,12 +220,10 @@ charadex.page.prompts = {
   ],
 
   badgeColumns: {
-    category: {               // name of the column
-      one: 'bg-one',      // value: 'style'
-      two: 'bg-two',      // value: 'style'
-      three: 'bg-three',  // value: 'style'
-      four: 'bg-four',     // value: 'style'
-      five: 'bg-five',      // value: 'style'
+    category: {                   // name of the column
+      agency: 'bg-danger',        // value: 'style'
+      urgency: 'bg-info',         // value: 'style'
+      connection: 'bg-warning',   // value: 'style'
     },
   },
 
@@ -372,12 +370,10 @@ charadex.page.masterlist = {
   ],
   
   badgeColumns: {
-    category: {
-      one: 'bg-one',
-      two: 'bg-two',
-      three: 'bg-three',
-      four: 'bg-four',
-      five: 'bg-five',
+    category: {                   // name of the column
+      agency: 'bg-danger',        // value: 'style'
+      urgency: 'bg-info',         // value: 'style'
+      connection: 'bg-warning',   // value: 'style'
     },
     pronouns: {
       hehim: 'bg-hehim',
@@ -657,12 +653,10 @@ charadex.page.chapters = {
   ],
 
   badgeColumns: {
-    category: {               // name of the column
-      one: 'bg-one',      // value: 'style'
-      two: 'bg-two',      // value: 'style'
-      three: 'bg-three',  // value: 'style'
-      four: 'bg-four',     // value: 'style'
-      five: 'bg-five',      // value: 'style'
+    category: {                   // name of the column
+      agency: 'bg-danger',        // value: 'style'
+      urgency: 'bg-info',         // value: 'style'
+      connection: 'bg-warning',   // value: 'style'
     },
   },
 
