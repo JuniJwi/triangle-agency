@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     $speaker.text(dialogue.character);
     $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
     charTimer = setInterval(() => {
-      char += 1;
+      char += 2;
       $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
 
       if (char >= chapterDialogue[scene][order].text.length) {
