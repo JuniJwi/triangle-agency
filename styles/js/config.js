@@ -37,10 +37,10 @@ charadex.sheet = {
   },
 
   options: { // available options for values in your sheets used in search filters
-    roles: ['Story Character', 'Player Character', 'Side Character'],
+    roles: ['PC', 'NPC'],
     statuses: ['Active', 'Out of Date', 'Retired', 'Dead', 'WIP'],
-    category: ['All', 'One', 'Two', 'Three', 'Four', 'Five'],
-    subcategory: ['All', 'One', 'Two', 'Three', 'Four', 'Five'],
+    category: ['All', 'Agency', 'Urgency', 'Connection'],
+    subcategory: ['All', 'Human', 'Anomaly', 'Resonant', 'Other'],
     itemTypes: ['All', 'Currency', 'Voucher', 'Achievement', 'Gatcha', 'Misc'],
     emotions: ['Neutral', 'Happy', 'Manic', 'Angry', 'Sad', 'Nervous', 'Stressed', 'Embarrassed', 'Skeptical', 'Signature'],
   }
@@ -504,9 +504,8 @@ charadex.page.player = {
 
   badgeColumns: {
     role: { 
-      creator: 'bg-primary',
-      mod: 'bg-primary',
-      player: 'bg-secondary',
+      gm: 'bg-warning',
+      player: 'bg-primary',
     },
     pronouns: {
       hehim: 'bg-hehim',
