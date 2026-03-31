@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           h1.textContent = dialogue.character;
           var speakerlabel = document.createElement("a");
           speakerlabel.setAttribute('class', 'btn btn-primary btn-sm');
+          speakerlabel.setAttribute('tabindex', '0');
           speakerlabel.setAttribute('data-bs-toggle', 'popover');
           speakerlabel.setAttribute('data-bs-html', 'true');
           speakerlabel.setAttribute('data-bs-title', `<a href='${characterSprites[dialogue.character]['profilelink']}'>${dialogue.character}</a>`);
