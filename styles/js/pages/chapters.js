@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           // init popovers
           $('[data-bs-toggle="popover"]').popover();
           $('[data-bs-toggle="popover"]').on('keydown', function (e) {
-            e.preventDefault();
             if (e.code === "Enter") {
+              e.preventDefault();
               $(this).popover('toggle');
             }
           });
