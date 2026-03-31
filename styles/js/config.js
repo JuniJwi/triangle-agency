@@ -41,7 +41,7 @@ charadex.sheet = {
     statuses: ['Active', 'Out of Date', 'Retired', 'Dead', 'WIP'],
     category: ['All', 'Agency', 'Urgency', 'Connection'],
     subcategory: ['All', 'Human', 'Anomaly', 'Resonant', 'Other'],
-    itemTypes: ['All', 'Currency', 'Voucher', 'Achievement', 'Gatcha', 'Misc'],
+    itemTypes: ['All', 'Currency', 'Requisition', 'Agency', 'Urgency', 'Misc'],
     emotions: ['Neutral', 'Happy', 'Manic', 'Angry', 'Sad', 'Nervous', 'Stressed', 'Embarrassed', 'Skeptical', 'Signature'],
   }
 
