@@ -203,24 +203,25 @@
         <div class="profileid m-auto"></div>
       </div>
 
-      <!-- Summary -->
-      <hr>
-      <div class="text-center summary"></div>
-      <hr>
-
       <!-- Body -->
       <div class="container my-4">
-        <div class="card card-body p-0" id="background"
+        <div class="card card-body d-flex flex-column p-0" id="background"
              style="height: 400px; background-image: none;">
+          <img src="" id="sprite">
+          <div id="speaker"></div>
+          <div id="speech"></div>
         </div>
       </div>
 
-      <!-- Link -->
-      <p class="text-end">
-        <a class="btn btn-primary link" href="" role="button">
-          Submit<i class="fas fa-circle-chevron-right fa-fw ms-2"></i>
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between">
+        <a class="btn btn-primary link" href="" role="button" id="prev-button">
+          Prev<i class="fas fa-circle-chevron-left fa-fw ms-2"></i>
         </a>
-      </p>
+        <a class="btn btn-primary link" href="" role="button" id="next-button">
+          Next<i class="fas fa-circle-chevron-right fa-fw ms-2"></i>
+        </a>
+      </div>
 
     </div> <!-- End of Chapter Card -->
 
