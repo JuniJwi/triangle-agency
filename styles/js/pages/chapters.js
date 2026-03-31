@@ -72,6 +72,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         let char = 0; // number of characters visible
 
+        // -------------------------- //
+        // functions
+        // ---------------------------//
         function updateView() {
           const dialogue = chapterDialogue[scene][order];
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
@@ -83,14 +86,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           $speech.html(charadex.manageData.convertMarkdown(chapterDialogue[scene][order].text.slice(0, char)));
         }
 
-
         function sceneChange() {
           // fade to black, change scene, then reveal again
         }
-
-        // control buttons
-        $('#prev-button').on('click', function(e) {
-          e.preventDefault();
+        
+        function checkPrevious() {
           char = 0;
           order -= 1;
           if (order < 0) {
@@ -103,10 +103,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
           }
           console.log("Prev clicked:", `${char}, ${order}, ${scene}`);
-          updateView();
-        });
-        $('#next-button').on('click', function(e) {
-          e.preventDefault();
+        }
+        function checkNext() {
           if (char < chapterDialogue[scene][order].text.length) {
             char = chapterDialogue[scene][order].text.length;
           } else {
@@ -121,10 +119,39 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
           }
           console.log("Next clicked:", `${char}, ${order}, ${scene}`);
+        }
+
+        // -------------------------- //
+        // controls
+        // ---------------------------//
+        $('#prev-button').on('click', function(e) {
+          e.preventDefault();
+          checkPrevious();
           updateView();
         });
+        $('#next-button').on('click', function(e) {
+          e.preventDefault();
+          checkNext();
+          updateView();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.code === "ArrowLeft") {
+            e.preventDefault();
+            checkPrevious();
+            updateView();
+          }
+          else if (e.code === "ArrowRight") {
+            e.preventDefault();
+            checkNext();
+            updateView();
+          }
+        })
 
-        // show page
+
+        // -------------------------- //
+        // step
+        // ---------------------------//
+        // show game frame 0
         updateView(chapterDialogue[scene][order]);
 
         // set frame timer
