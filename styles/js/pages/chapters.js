@@ -70,14 +70,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const speed = 4; // speed of text scroll
   let char = 0; // number of characters visible
+  let charTimer;
 
-  function charTimer() {
-    let charIncrement = setInterval(() => {
+  function charIncrement(dialogue) {
+    charTimer = setInterval(() => {
       char += speed;
       $speaker.html(charadex.manageData.convertMarkdown(dialogue.text.slice(char)));
 
       if (char >= chapterDialogue[scene][order].text.length) {
-        clearInterval(charIncrement);
+        clearInterval(charTimer);
       }
     }, 1000);
   }
@@ -87,10 +88,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     $background.css('background-image',`url("${dialogue.background}")`);
     $speaker.text(dialogue.character);
     $speaker.html(charadex.manageData.convertMarkdown(dialogue.text.slice(char)));
-    charTimer();
+    charIncrement();
   }
 
-  function sceneChange(url) {
+  function sceneChange() {
     // fade to black, change scene, then reveal again
   }
 
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       order = chapterDialogue[scene].length - 1;
     }
     console.log("Prev clicked:", `${char}, ${order}, ${scene}`);
-    updateView();
+    updateView(chapterDialogue[scene][order]);
   });
   $('#next-button').on('click', function(e) {
     e.preventDefault();
@@ -118,10 +119,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
     console.log("Next clicked:", `${char}, ${order}, ${scene}`);
-    updateView();
+    updateView(chapterDialogue[scene][order]);
   });
 
   // show page
+
+  updateView(chapterDialogue[scene][order]);
 
   charadex.tools.loadPage('.softload', 100);
 });
