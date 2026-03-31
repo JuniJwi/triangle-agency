@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // game initialization
         // ---------------------------//
         // select game objects
+        let $spriteframe = $('#spriteframe');
         let $sprite = $('#sprite');;
         let $background = $('#background');
         let $speaker = $('#speaker');
@@ -79,11 +80,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           const dialogue = chapterDialogue[scene][order];
           $sprite.attr('src', characterSprites[dialogue.character][dialogue.emotion]);
           if (dialogue.rightaligned) {
-            $sprite.addClass('ms-auto');
-            $sprite.removeClass('me-auto');
+            $spriteframe.addClass('text-end');
           } else { 
-            $sprite.removeClass('ms-auto'); 
-            $sprite.addClass('me-auto');
+            $spriteframe.removeClass('text-end'); 
           }
           $background.css('background-image',`url("${dialogue.background}")`);
           $speaker.text(dialogue.character);
