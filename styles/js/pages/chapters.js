@@ -23,12 +23,54 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // gather dialogue with the same chapter title
         let dialogueData = await charadex.importSheet('dialogue');
+        dialogueData = dialogueData.filter((dialogue) => dialogue['chapter'] == pageParameter);
+        
+        dialogueData = charadex.manageData.sortArray(dialogueData, 'order');
 
-        let chapterDialogue = dialogueData.filter((dialogue) => dialogue['chapter'] == pageParameter);
-        console.log(chapterDialogue);
+        let chapterDialogue = {};
+        // {
+        //    1: [{
+        //          count
+        //       }]
+        // }
+        for (dialogue of dialogueData) {
+          chapterDialogue[dialogue.chapter].extend(dialogue);
+        }
+
+        console.log("DIALOGUE DATA:", chapterDialogue);
 
       }
   });
+
+  // -------------------------- //
+  // game initialization
+  // ---------------------------//
+  // select game objects
+  let $sprite = $('#sprite');;
+  let $environment = $('#environment');
+  let $speaker = $('#speaker');
+  let $speech = $('#speech');
+
+  let scene = 0;
+  let order = 0;
+  let ix = 0;
+
+  const speed = 4; // speed of text scroll
+  let char = 0; // number of characters visible
+
+
+  $('#prev-button').on('click', () => {
+  });
+  $('#next-button').on('click', () => {
+    if (char < chapterDialogue[ix].text.length) {
+      char = chapterDialogue[ix].text.length;
+    } else {
+      char = 0;
+      ix += 1;
+    }
+  });
+
+  // show page
 
   charadex.tools.loadPage('.softload', 100);
 });
