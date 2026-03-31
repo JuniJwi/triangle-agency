@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           characterSprites[character.name] = {};
 
           // add the speaker title
-          characterSprites[character.name]['speaker'] = `<a data-bs-toggle="popover" data-bs-html="true"
-                                                            data-bs-title="<a href='${charLink}'>${character.name}</a>"
+          characterSprites[character.name]['speaker'] = `<a class="btn btn-primary btn-sm" data-bs-toggle="popover" data-bs-html="true"
+                                                            data-bs-title="<a href='${charLink}' target="_blank">${character.name}</a>"
                                                             data-bs-content="${character.summary}">
-                                                              <h1 class="card-title m-1">${character.name}</h1>
+                                                              <h1 class="m-1">${character.name}</h1>
                                                             </a>`;
 
           // default sprite

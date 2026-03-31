@@ -878,3 +878,8 @@ p:last-child {
   background-size: cover;
   background-position: center;
 }
+#speaker {
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
