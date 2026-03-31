@@ -57,7 +57,7 @@
   --bs-info-rgb: 0, 71, 187;   /* for info popups and tips */
   --bs-warning-rgb: 237, 174, 30; /* for warnings and alerts */
   --bs-danger-rgb: 201, 32, 47;  /* for extreme warnings, delete, etc */
-  --bs-light-rgb: 230, 227, 232; /* if you want light text or cards */
+  --bs-light-rgb: 255, 255, 255; /* if you want light text or cards */
   --bs-dark-rgb: 46, 26, 71;     /* if you want dark text or cards */
 
 /* ------------------------------------------------------------- */
