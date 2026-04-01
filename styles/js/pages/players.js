@@ -20,34 +20,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         $('#gallery-header').hide();
 
         let profile = listData.profileArray[0];
-        
-        // Inventory
-        let inventoryData = await charadex.manageData.readInventoryLog(profile.inventorylog);
 
-        charadex.initialize.groupGallery(
-          charadex.page.player.playerConfig,
-          inventoryData,
-          'type',
-          charadex.url.getPageUrl('items')
-        );
-        console.log('Initialized inventory gallery!');
-
-        // Designs
+        // Characters
         if (charadex.tools.checkArray(profile.characters)) {
-          let designs = await charadex.initialize.page(
+          let characters = await charadex.initialize.page(
             profile.characters,
             charadex.page.player.relatedData['characters'],
           );
           console.log('Initialized related characters!');
-        }
-
-        // Logs
-        if (charadex.tools.checkArray(profile.inventorylog)) {
-          let logs = await charadex.initialize.page(
-            profile.inventorylog,
-            charadex.page.player.relatedData['inventory log'],
-          );
-          console.log('Initialized related logs!');
         }
 
       }

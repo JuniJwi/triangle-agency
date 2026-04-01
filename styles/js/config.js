@@ -29,7 +29,6 @@ charadex.sheet = {
     masterlist:    'characters',
     masterlistLog: 'character log',
     player:        'players',
-    inventoryLog:  'inventory log',
     items:         'items',
     prompts:       'prompts',
     lore:          'mission reports',
@@ -534,31 +533,6 @@ charadex.page.player = {
   // Related Data
   relatedData: {
 
-    [charadex.sheet.pages.inventoryLog]: {
-
-      sheetPage: charadex.sheet.pages.inventoryLog,
-      primaryProperty: 'username', // The key of the field we are SEARCHING BY in primary array
-      relatedProperty: 'username', // The name of the field we are SEARCHING IN in secondary array
-      dexSelector: 'log',
-      profileProperty: 'username', // The ID of the secondary field
-      profileToggle: false,
-
-      sort: {
-        toggle: true,
-        sortProperty: 'timestamp',
-        order: 'desc',
-        parameters: []
-      },
-
-      pagination: {
-        toggle: true,
-        bottomToggle: true,
-        amount: 12,
-      },
-
-    },
-    
-
     [charadex.sheet.pages.masterlist]: {
 
       // This imports the config from the masterlist
@@ -576,39 +550,6 @@ charadex.page.player = {
     }
 
   },
-
-  
-  // This is a special config for their inventory
-  playerConfig: {
-
-    sheetPage: charadex.sheet.pages.items,
-    sitePage: 'items',
-    dexSelector: 'item',
-    profileProperty: 'item',
-    profileToggle: false,
-
-    sort: {
-      toggle: true,
-      sortProperty: 'sort',
-      order: 'asc',
-      parametersKey: 'type', 
-      parameters: [charadex.sheet.options.itemTypes]
-    },
-
-    search: {
-      toggle: true,
-      filterToggle: false,
-      parameters: ['Item']
-    },
-
-    filters: {
-      toggle: false,
-      parameters: {
-        'Type': charadex.sheet.options.itemTypes,
-      }
-    },
-
-  }
 
 };
 
