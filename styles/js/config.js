@@ -254,15 +254,13 @@ charadex.page.lore = {
 
   filters: {
     toggle: false,
-    parameters: {
-      'TBA': [],
-    }
+    parameters: {}
   },
 
   fauxFolder: {
-    toggle: false,
-    folderProperty: '',
-    parameters: [],
+    toggle: true,
+    folderProperty: 'status',
+    parameters: ['All', 'Captured', 'Neutralized', 'Escaped', 'Other'],
   },
 
   search: {
