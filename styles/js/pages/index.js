@@ -36,13 +36,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   let designs = await charadex.initialize.page(null, charadex.page.index.designs, (arr) => {
     
     // Sort the array in desc order
-    arr.sort((a,b) => b.dateadded - a.dateadded);
+    // arr.sort((a,b) => b.dateadded - a.dateadded);
 
     // Splice the silly little array
-    let sliceAmount = charadex.page.index.designs.amount || 6;
-    arr.splice(sliceAmount, arr.length);
+    // let sliceAmount = charadex.page.index.designs.amount || 6;
+    // arr.splice(sliceAmount, arr.length);
 
   });
+
+  let sliceAmount = charadex.page.index.designs.amount || 6;
+  designs.splice(sliceAmount, designs.length);
 
 
   /* Load Page
