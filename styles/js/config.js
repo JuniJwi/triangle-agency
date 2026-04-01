@@ -568,7 +568,7 @@ charadex.page.chapters = {
 
   // Dex Options
   sort: {
-    toggle: true,
+    toggle: false,
     sortProperty: 'title',
     order: 'asc',
     parameters: []
