@@ -14,10 +14,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   let dex = await charadex.initialize.page(
     null,
     charadex.page.chapters,
-    null,
-    async (listData) => {
-
-      for (let chapter of listData.array) {
+    async (arr) => {
+      for (let chapter of arr) {
         // Make charcter links
         const pageUrl = charadex.url.getPageUrl(charadex.page.masterlist.sitePage);
 
@@ -30,6 +28,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         chapter.characterlist = characterlist.join(', ');
       }
+    }, async (listData) => {
+
 
       console.log("LIST DATA:", listData); 
       if (listData.type == 'profile') {
