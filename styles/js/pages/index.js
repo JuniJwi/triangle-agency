@@ -13,6 +13,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   ===================================================================== */
   let prompts = await charadex.initialize.page(null, charadex.page.index.prompts, (arr) => {
 
+    // Sort the array in configured order
+    if (charadex.page.index.prompts.sort?.toggle ?? false) {
+      arr = charadex.manageData.sortArray(
+        arr, 
+        charadex.page.index.prompts.sort.sortProperty, 
+        charadex.page.index.prompts.sort.order,
+        charadex.page.index.prompts.sort.parametersKey,
+        charadex.page.index.prompts.sort.parameters,
+      );
+    }
+
       // Splice the silly little array
       let sliceAmount = charadex.page.index.prompts.amount || 4;
       arr.splice(sliceAmount, arr.length);
@@ -35,17 +46,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   ===================================================================== */
   let designs = await charadex.initialize.page(null, charadex.page.index.designs, (arr) => {
     
-    // Sort the array in desc order
-    // arr.sort((a,b) => b.dateadded - a.dateadded);
+    // Sort the array in configured order
+    if (charadex.page.index.designs.sort?.toggle ?? false) {
+      arr = charadex.manageData.sortArray(
+        arr, 
+        charadex.page.index.designs.sort.sortProperty, 
+        charadex.page.index.designs.sort.order,
+        charadex.page.index.designs.sort.parametersKey,
+        charadex.page.index.designs.sort.parameters,
+      );
+    }
 
     // Splice the silly little array
-    // let sliceAmount = charadex.page.index.designs.amount || 6;
-    // arr.splice(sliceAmount, arr.length);
+    let sliceAmount = charadex.page.index.designs.amount || 6;
+    arr.splice(sliceAmount, arr.length);
 
   });
-
-  let sliceAmount = charadex.page.index.designs.amount || 6;
-  designs.splice(sliceAmount, designs.length);
 
 
   /* Load Page
