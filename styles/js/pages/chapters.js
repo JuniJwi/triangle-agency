@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     null,
     async (listData) => {
 
-      for (chapter of listData.array) {
+      for (let chapter of listData.array) {
         // Make charcter links
         const pageUrl = charadex.url.getPageUrl(charadex.page.masterlist.sitePage);
 
