@@ -32,7 +32,7 @@ charadex.sheet = {
     inventoryLog:  'inventory log',
     items:         'items',
     prompts:       'prompts',
-    lore:          'lore',
+    lore:          'mission reports',
     chapters:      'chapters',
   },
 
@@ -236,13 +236,13 @@ charadex.page.prompts = {
 charadex.page.lore = {
 
   sheetPage: charadex.sheet.pages.lore,
-  sitePage: 'lore',
+  sitePage: 'missionreports',
   dexSelector: 'charadex',
-  profileProperty: 'id',
+  profileProperty: 'title',
 
   sort: {
     toggle: false,
-    sortProperty: 'id',
+    sortProperty: 'date',
     order: 'asc',
     parameters: []
   },
@@ -269,11 +269,11 @@ charadex.page.lore = {
   search: {
     toggle: true,
     filterToggle: true,
-    parameters: ['All', 'Title', 'Content', 'Tags']
+    parameters: ['All', 'Title', 'Tags']
   },
 
   prevNext: {
-    toggle: false,
+    toggle: true,
   },
   
   fillBlanks: [
