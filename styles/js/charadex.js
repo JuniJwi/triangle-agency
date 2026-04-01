@@ -31,6 +31,7 @@ charadex.initialize.page = async (dataArr, config, dataCallback, listCallback, c
 
   // Get our data
   let charadexData = dataArr || await charadex.importSheet(config.sheetPage);
+  console.log("SPREADSHEET IMPORT:", charadexData);
   
   // Add profile information
   for (let entry of charadexData) {
