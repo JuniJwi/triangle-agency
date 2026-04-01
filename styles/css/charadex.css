@@ -785,7 +785,7 @@ img {
 /* Field labels
 /* ------------------------------------------------------------- */
 label {
-  color: var(--bs-link-color);
+  color: var(--bs-body-color);
   font-family: var(--cd-font-header);
   font-weight: bold;
   text-transform: var(--cd-header-transform);
