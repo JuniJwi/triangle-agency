@@ -17,6 +17,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     null,
     async (listData) => {
 
+      for (chapter of listData) {
+        // Make charcter links
+        const pageUrl = charadex.url.getPageUrl(charadex.page.masterlist.sitePage);
+
+        chapter.characters = chapter.characters ? chapter.characters.split(', ') : [];
+        let characterlist = [];
+        if (chapter.characters.length >= 1) {
+          for (let character of chapter.characters) {
+            characterlist.push(`<a href="${charadex.url.addUrlParameters(pageUrl, {profile: charadex.tools.scrub(character)})}">${character}</a>`);
+          }
+        }
+        chapter.characterlist = characterlist.join(', ');
+      }
+
       console.log("LIST DATA:", listData); 
       if (listData.type == 'profile') {
         // we are viewing the content of the chapter chapter
