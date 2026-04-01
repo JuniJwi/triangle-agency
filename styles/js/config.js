@@ -641,7 +641,7 @@ charadex.page.index = {
     sort: {
       toggle: true,
       sortProperty: 'dateadded',
-      order: 'asc',
+      order: 'desc',
       parameters: []
     },
   }
