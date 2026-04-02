@@ -167,7 +167,16 @@ charadex.tools = {
     } catch (err) { 
       console.error('Make sure the Multiselect CDN is in this file.') 
     }
-  } 
+  },
+
+  /**
+   * Converts Google sheets serial date number to a JS Date object.
+   * @param {Number} serial The number serial of the date.
+   * @return {Date} Date object.
+   */
+  serialNumberToDate(serial) {
+  return new Date(Math.round((serial - 25569)*86400*1000));
+}
 
 }
 

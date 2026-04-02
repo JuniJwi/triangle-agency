@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Oh lordt, it's rels time =========================================
         if (profile.relationships && typeof profile.relationships === 'string') {
 
-          // old way of doing this
+          // old way of doing this. TODO: Remove when everyone's sheets are updated.
           if (profile.relationships.includes(';;;')) {
             // our rels column has a textjoin of all relationships
             // we need to put it back into array form
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const relText = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
                 const bonusTitle = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
 
-                const date = new Date(relJSON['Updated'][ix]); // {object Date}
+                const date = charadex.tools.serialNumberToDate(Number(relJSON['Updated'][ix]));
                 const dateFormatted = new Intl.DateTimeFormat("en-US", {
                   year: "numeric",
                   month: "2-digit",

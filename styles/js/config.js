@@ -430,7 +430,7 @@ charadex.page.masterlist = {
         amount: 12,
       },
 
-    }
+    },
 
   },
 
