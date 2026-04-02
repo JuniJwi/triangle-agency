@@ -151,8 +151,6 @@ document.addEventListener("DOMContentLoaded", async () => {
               }
             }
             $('#rel-container').html(relElement);
-              
-            }
           }
         }
       }
