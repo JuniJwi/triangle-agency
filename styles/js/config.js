@@ -168,7 +168,7 @@ charadex.page.items = {
 /* --------------------------------------------------------------- */
 charadex.page.prompts = {
 
-  sheetID: charadex.sheet.id,
+  sheetID: charadex.sheet.sysid,
   sheetPage: charadex.sheet.pages.prompts,
   sitePage: 'prompts',
   dexSelector: 'prompt',
@@ -235,11 +235,11 @@ charadex.page.prompts = {
 
 
 /* --------------------------------------------------------------- */
-/* lore.html
+/* missionreports.html
 /* --------------------------------------------------------------- */
 charadex.page.lore = {
 
-  sheetID: charadex.sheet.id,
+  sheetID: charadex.sheet.vnid,
   sheetPage: charadex.sheet.pages.lore,
   sitePage: 'missionreports',
   dexSelector: 'charadex',
