@@ -112,7 +112,7 @@ charadex.page = {};
 /* --------------------------------------------------------------- */
 charadex.page.items = {
 
-  sheetID: charadex.sheet.id,
+  sheetID: charadex.sheet.sysid,
   sheetPage: charadex.sheet.pages.items,
   sitePage: 'items',
   dexSelector: 'item',
