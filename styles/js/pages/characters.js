@@ -130,7 +130,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const relTitle = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
                 const relText = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
                 const bonusTitle = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
-                const bonusDesk = connectionInfo[relJSON['Bonus'][ix]];
                 // const bonusText = rel[6] ? charadex.manageData.convertMarkdown(rel[6]) : `<span class="text-muted">--</span>`;
                 let networked = '';
                 if (!isNaN(relJSON['Network Lvl'][ix])) {
@@ -151,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     <div class="alert alert-warning mt-2 mb-0 px-3 py-2">
                                       <h3 class="span-header text-center text-warning mb-0">${bonusTitle}</h3>
                                       <div class="text-center text-warning">${networked}</div>
-                                      <div>${bonusDesc}</div>
+                                      <div>${connectionInfo[relJSON['Bonus'][ix]]}</div>
                                     </div>
                                   </div>
                                   <div class="card-footer text-muted small">
