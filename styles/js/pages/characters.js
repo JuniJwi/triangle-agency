@@ -109,7 +109,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             // gather bonus info
             // ---------------------------//
             // gather connection bonus data
+            // TODO: Make this into a function?
             let connectionData = await charadex.importSheet('connection', charadex.sheet.sysid);
+            let connectionInfo = {}
+            for (const connection of connectionData) {
+              connectionInfo[connection.name] = connection.description
+            }
+
             console.log("CONNECTION DATA:", connectionData);
 
             let relJSON = JSON.parse(profile.relationships);
@@ -124,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const relTitle = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
                 const relText = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
                 const bonusTitle = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
-                const bonusDesk = "";
+                const bonusDesk = connectionInfo[relJSON['Bonus'][ix]];
                 // const bonusText = rel[6] ? charadex.manageData.convertMarkdown(rel[6]) : `<span class="text-muted">--</span>`;
                 let networked = '';
                 if (!isNaN(relJSON['Network Lvl'][ix])) {
