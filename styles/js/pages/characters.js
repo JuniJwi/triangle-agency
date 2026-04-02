@@ -130,6 +130,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const relTitle = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
                 const relText = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
                 const bonusTitle = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
+
+                const date = new Date(relJSON['Updated'][ix]); // {object Date}
+                const dateFormatted = new Intl.DateTimeFormat("en-US", {
+                  year: "numeric",
+                  month: "2-digit",
+                  day: "2-digit"
+                }).format(date);
+
                 // const bonusText = rel[6] ? charadex.manageData.convertMarkdown(rel[6]) : `<span class="text-muted">--</span>`;
                 let networked = '';
                 if (!isNaN(relJSON['Network Lvl'][ix])) {
@@ -156,7 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                   <div class="card-footer text-muted small">
                                     <div class="row">
                                       <div class="col">Last Updated:</div>
-                                      <div class="col-auto">${relJSON['Updated'][ix]}</div>
+                                      <div class="col-auto">${dateFormatted}</div>
                                     </div>
                                   </div>
                                 </div>
