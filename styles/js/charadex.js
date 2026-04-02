@@ -30,7 +30,7 @@ charadex.initialize.page = async (dataArr, config, dataCallback, listCallback, c
   let search = config.search?.toggle ?? false ? charadex.listFeatures.search(config.search.parameters, config.search.filterToggle, selector) : false;
 
   // Get our data
-  let charadexData = dataArr || await charadex.importSheet(config.sheetPage);
+  let charadexData = dataArr || await charadex.importSheet(config.sheetPage, config.sheetID);
   console.log("SPREADSHEET IMPORT:", charadexData);
   
   // Add profile information

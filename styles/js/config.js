@@ -23,7 +23,9 @@ charadex.site = {
 /* --------------------------------------------------------------- */
 charadex.sheet = {
 
-  id: '1QOs1dk5JD7euJ9KqeZhDV6U2EbjXcbGJY2VWXJz-w-I',
+  id:    '1QOs1dk5JD7euJ9KqeZhDV6U2EbjXcbGJY2VWXJz-w-I', // masterlist information
+  sysid: '1xrvFNsjTU00DEDMnIKzY21yWx1K-RRwAOOYYZ6IMvxs', // has system information
+  vnid:  '1nTRhTLKkDZf_ZcdnacojXskyG4fryo1d7Zrl3AgbE0E', // visual novel sheet
 
   pages: { // these should match your sheet names, but in lowercase
     masterlist:    'characters',
@@ -51,6 +53,7 @@ charadex.sheet = {
 /* ==================================================================== */
 /* Some general notes for each section...
 /*
+/* sheetID:         which sheet we're pulling the information from
 /* sheetPage:       refers to the name of the google sheet, but in lowercase
 /* sitePage:        refers to the URL path of the page. Usually, this will
 /*                  match the name of the html file for that page
@@ -109,6 +112,7 @@ charadex.page = {};
 /* --------------------------------------------------------------- */
 charadex.page.items = {
 
+  sheetID: charadex.sheet.id,
   sheetPage: charadex.sheet.pages.items,
   sitePage: 'items',
   dexSelector: 'item',
@@ -164,6 +168,7 @@ charadex.page.items = {
 /* --------------------------------------------------------------- */
 charadex.page.prompts = {
 
+  sheetID: charadex.sheet.id,
   sheetPage: charadex.sheet.pages.prompts,
   sitePage: 'prompts',
   dexSelector: 'prompt',
@@ -234,6 +239,7 @@ charadex.page.prompts = {
 /* --------------------------------------------------------------- */
 charadex.page.lore = {
 
+  sheetID: charadex.sheet.id,
   sheetPage: charadex.sheet.pages.lore,
   sitePage: 'missionreports',
   dexSelector: 'charadex',
@@ -312,6 +318,7 @@ charadex.page.lore = {
 /* --------------------------------------------------------------- */
 charadex.page.masterlist = {
 
+  sheetID: charadex.sheet.id,
   sheetPage: charadex.sheet.pages.masterlist,
   sitePage: 'characters',
   dexSelector: 'charadex',
@@ -467,6 +474,7 @@ charadex.page.masterlist = {
 charadex.page.player = {
 
   // Dex Set Up
+  sheetID: charadex.sheet.id,
   sheetPage: charadex.sheet.pages.player,
   sitePage: 'players',
   dexSelector: 'player',
@@ -559,6 +567,7 @@ charadex.page.player = {
 charadex.page.chapters = {
 
   // Dex Set Up
+  sheetID: charadex.sheet.vnid,
   sheetPage: charadex.sheet.pages.chapters,
   sitePage: 'chapters',
   dexSelector: 'charadex',

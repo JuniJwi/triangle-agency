@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // -------------------------- //
         // get character portraits
         // ---------------------------//
-        let characterData = await charadex.importSheet('characters');
+        let characterData = await charadex.importSheet('characters', charadex.sheet.id);
         for (const character of characterData) {
           // make character profile url
           let charLink = charadex.url.addUrlParameters(
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let pageParameter = charadex.url.getUrlParameters().get('profile');
 
         // gather dialogue with the same chapter title
-        let dialogueData = await charadex.importSheet('dialogue');
+        let dialogueData = await charadex.importSheet('dialogue', charadex.sheet.vnid);
         dialogueData = dialogueData.filter((dialogue) => charadex.tools.scrub(dialogue['chapter']) == pageParameter);
         
         dialogueData = charadex.manageData.sortArray(dialogueData, 'order');
