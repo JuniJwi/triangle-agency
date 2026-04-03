@@ -244,11 +244,17 @@ charadex.listFeatures.pagination = (galleryArrayLength, pageAmount = 12, bottomP
   pagination.next().on('click', () => {
     const nextElement = $('.pagination .active').next().children('a')[0];
     if (nextElement) nextElement.click();
+    // clear popovers
+    $("[data-bs-toggle='popover']").popover('dispose');
+    charadex.tools.initPopovers();
   });
 
   pagination.prev().on('click', () => {
     const prevElement = $('.pagination .active').prev().children('a')[0];
     if (prevElement) prevElement.click();
+    // clear popovers
+    $("[data-bs-toggle='popover']").popover('dispose');
+    charadex.tools.initPopovers();
   });
 
   // Show the container
