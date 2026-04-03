@@ -43,19 +43,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                                         <div class="col">
                                           <div class="alert alert-success">
                                             <h6>Success</h6>
-                                            ${charadex.tools.convertMarkdown(profile.success)}
+                                            ${charadex.manageData.convertMarkdown(item.success)}
                                           </div>
                                         </div>
                                         <div class="col">
                                           <div class="alert alert-danger">
                                             <h6>Failure</h6>
-                                            ${charadex.tools.convertMarkdown(profile.failure)}
+                                            ${charadex.manageData.convertMarkdown(item.failure)}
                                           </div>
                                         </div>
                                         <div class="col-12">
                                           <div class="alert alert-info">
-                                            <h6>${profile.bonus}</h6>
-                                            ${charadex.tools.convertMarkdown(profile.effect)}
+                                            <h6>${item.bonus}</h6>
+                                            ${charadex.manageData.convertMarkdown(item.effect)}
                                           </div>
                                         </div>
                                       </div>`
