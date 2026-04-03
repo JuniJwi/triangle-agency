@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const relText = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
                 const bonusTitle = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
 
-                const date = charadex.tools.serialNumberToDate(Number(relJSON['Updated'][ix]));
+                var date = charadex.tools.serialNumberToDate(Number(relJSON['Updated'][ix]));
                 date = new Intl.DateTimeFormat("en-US", {
                   year: "numeric",
                   month: "2-digit",
