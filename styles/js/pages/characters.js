@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             console.log("CONNECTION DATA:", connectionData);
 
-            let relJSON = JSON.parse(profile.relationships);
+            let relJSON = JSON.parse(profile.relationships.replace('/[\n\r]/g', "\n"));
             let relContainer = document.getElementById('rel-container');
             const relTemplate = document.querySelector('.rel-item');
             
