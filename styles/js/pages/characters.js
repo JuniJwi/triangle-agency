@@ -119,8 +119,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.log("CONNECTION DATA:", connectionData);
 
             let relJSON = JSON.parse(profile.relationships);
-            let relElement = '';
-            // Name, Hide,	Updated,	Network Lvl,	Relationship,	Bonus,	Bonus Description,	Description
+            let $relContainer = $('#rel-container');
+            const $relTemplate = $('#rel-item');
+            
+            // Name, Hide,	Updated,	Network Lvl,Relationship,	Bonus,	Bonus Description,	Description
             for (let ix in relJSON['Name']) {
               if (relJSON['Name'][ix] != '' && relJSON['Hide'][ix] === 'FALSE') {
                 // Set the character link
@@ -132,13 +134,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const bonusTitle = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
 
                 const date = charadex.tools.serialNumberToDate(Number(relJSON['Updated'][ix]));
-                const dateFormatted = new Intl.DateTimeFormat("en-US", {
+                date = new Intl.DateTimeFormat("en-US", {
                   year: "numeric",
                   month: "2-digit",
                   day: "2-digit"
                 }).format(date);
 
-                // const bonusText = rel[6] ? charadex.manageData.convertMarkdown(rel[6]) : `<span class="text-muted">--</span>`;
                 let networked = '';
                 if (!isNaN(relJSON['Network Lvl'][ix])) {
                   const pipfilled = `<i class="fa-solid fa-circle fa-xs"></i>`
@@ -146,29 +147,47 @@ document.addEventListener("DOMContentLoaded", async () => {
                   networked = pipfilled.repeat(Number(relJSON['Network Lvl'][ix])) + pipempty.repeat(9 - Number(relJSON['Network Lvl'][ix]));
                 }
                 // Create the DOM elements
-                relElement += `<div class="col-md-4 col-12 p-2">
-                                <div class="card bg-body-tertiary h-100">
-                                  <div class="card-header text-center d-flex">
-                                    <div class="m-auto z-1">
-                                      <a href="${charLink}"><h3 class="card-title mb-0">${relJSON['Name'][ix]} (${relTitle})</h3></a>
-                                    </div>
-                                  </div>
-                                  <div class="card-body d-flex flex-column flex-fill">
-                                    <div>${relText}</div>
-                                    <div class="alert alert-warning mt-2 mb-0 px-3 py-2">
-                                      <h3 class="span-header text-center text-warning mb-0">${bonusTitle}</h3>
-                                      <div class="text-center text-warning">${networked}</div>
-                                      <div>${connectionInfo[relJSON['Bonus'][ix]]}</div>
-                                    </div>
-                                  </div>
-                                  <div class="card-footer text-muted small">
-                                    <div class="row">
-                                      <div class="col">Last Updated:</div>
-                                      <div class="col-auto">${dateFormatted}</div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>`
+                let $relCard = $relTemplate.cloneNode(true);
+                $relCard.show();
+                $relCard.children('#rel-name').text(relJSON['Name'][ix]);
+                $relCard.children('#rel-link').attr('href', charLink);
+                $relCard.children('#rel-title').text(relTitle);
+                $relCard.children('#rel-date').text(date);
+                $relCard.children('#rel-networked').html(networked);
+                $relCard.children('#rel-bonus').text(bonusTitle);
+                $relCard.children('#rel-text').html(relText);
+                $relCard.children('#rel-popover').attr('data-bs-content', connectionInfo[relJSON['Bonus'][ix]])
+
+                $relContainer.append($relCard);
+
+                // -- update rel fields
+                //    set rel visible
+
+                // -- create title link
+
+                // relElement += `<div class="col-md-4 col-12 p-2">
+                //                 <div class="card bg-body-tertiary h-100">
+                //                   <div class="card-header text-center d-flex">
+                //                     <div class="m-auto z-1">
+                //                       <a href="${charLink}"><h3 class="card-title mb-0">${relJSON['Name'][ix]} (${relTitle})</h3></a>
+                //                     </div>
+                //                   </div>
+                //                   <div class="card-body d-flex flex-column flex-fill">
+                //                     <div>${relText}</div>
+                //                     <div class="alert alert-warning mt-2 mb-0 px-3 py-2">
+                //                       <h3 class="span-header text-center text-warning mb-0">${bonusTitle}</h3>
+                //                       <div class="text-center text-warning">${networked}</div>
+                //                       <div>${connectionInfo[relJSON['Bonus'][ix]]}</div>
+                //                     </div>
+                //                   </div>
+                //                   <div class="card-footer text-muted small">
+                //                     <div class="row">
+                //                       <div class="col">Last Updated:</div>
+                //                       <div class="col-auto">${dateFormatted}</div>
+                //                     </div>
+                //                   </div>
+                //                 </div>
+                //               </div>`
               }
             }
             $('#rel-container').html(relElement);
@@ -186,6 +205,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     window.location = hash;
   }
+
+  // init popovers
+  $('[data-bs-toggle="popover"]').popover();
+  $('[data-bs-toggle="popover"]').on('keydown', function (e) {
+    if (e.code === "Enter") {
+      e.preventDefault();
+      $(this).popover('toggle');
+    }
+  });
 
   charadex.tools.loadPage('.softload', 100);
 });
