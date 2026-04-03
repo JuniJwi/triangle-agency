@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           // -- first, determine class styles based on category
           for (let ix in charadex.sheet.options.itemType) {
             if (charadex.sheet.options.itemType[ix] === item.type) {
-              item.class = charadex.sheet.options.itemTypeClass[ix];
+              item.profilecolor = charadex.sheet.options.itemTypeClass[ix];
+              item.actionclass = charadex.sheet.options.itemTypeClass[ix];
             }
           }
 
@@ -237,5 +238,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
+  charadex.tools.applyColorData();
   charadex.tools.loadPage('.softload', 100);
 });

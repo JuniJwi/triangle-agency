@@ -63,6 +63,17 @@ charadex.tools = {
   },
 
   /**
+   * Apply color classes.
+   */
+  applyColorData() {
+    $("[data-cd-color]").each(function () {
+      const color = $(this).data().cdColor;
+      const classname = $(this).data().cdClass;
+      $(this).addClass(`${classname}-${color}`);
+    });
+  },
+
+  /**
    * Show/hide elements after page load is complete.
    * @param {String} showClass The class of items to show after load.
    * @param {Number} timeout How long to wait before loading.
@@ -142,6 +153,9 @@ charadex.tools = {
       }
       if (classArr[i].includes('popover') && classArr[i].includes('title')) {
         newArr[i] = { name: classArr[i], attr: 'data-bs-title' };
+      }
+      if (classArr[i].includes('class')) { // so we can add classes without overwriting
+        newArr[i] = { name: classArr[i], attr: 'data-cd-color' };
       }
     }
 
