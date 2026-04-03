@@ -247,6 +247,8 @@ charadex.listFeatures.pagination = (galleryArrayLength, pageAmount = 12, bottomP
     // clear popovers
     $("[data-bs-toggle='popover']").popover('dispose');
     charadex.tools.initPopovers();
+    // apply colors to new items
+    charadex.tools.applyColorData();
   });
 
   pagination.prev().on('click', () => {
@@ -255,6 +257,8 @@ charadex.listFeatures.pagination = (galleryArrayLength, pageAmount = 12, bottomP
     // clear popovers
     $("[data-bs-toggle='popover']").popover('dispose');
     charadex.tools.initPopovers();
+    // apply colors to new items
+    charadex.tools.applyColorData();
   });
 
   // Show the container
