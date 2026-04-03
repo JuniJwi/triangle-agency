@@ -184,7 +184,6 @@ charadex.initialize.page = async (dataArr, config, dataCallback, listCallback, c
     // Add refresh
     galleryList.on('updated', (list) => {
       // re-render items
-      $("[data-bs-toggle='popover']").popover('dispose');
       charadex.tools.initPopovers();
       charadex.tools.applyColorData();
     })
@@ -284,11 +283,10 @@ charadex.initialize.groupGallery = async function (config, dataArray, groupBy, c
       // Add refresh
       groupList.on('updated', (list) => {
         // re-render items
-        $("[data-bs-toggle='popover']").popover('dispose');
         charadex.tools.initPopovers();
         charadex.tools.applyColorData();
       })
-      
+
       // Add filters & Search
       if ((config.filters?.toggle ?? false) && filters) filters.initializeFilters(groupList);
       if ((config.search?.toggle ?? false) && search) search.initializeSearch(groupList);
