@@ -71,6 +71,7 @@ charadex.tools = {
       const classname = $(this).data().cdClass;
       $(this).addClass(`${classname}-${color}`);
     });
+    console.log("Applied configured colors.")
   },
 
   /**

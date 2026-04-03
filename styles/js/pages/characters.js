@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         // For each item, we have specific values we need to add.
         for (let item of inventoryData) {
           // -- first, determine class styles based on category
-          for (let ix in charadex.sheet.options.itemType) {
-            if (charadex.sheet.options.itemType[ix] === item.type) {
-              item.profilecolor = charadex.sheet.options.itemTypeClass[ix];
+          for (let ix in charadex.sheet.options.itemTypes) {
+            if (charadex.sheet.options.itemTypes[ix] === item.type) {
+              item.profileclass = charadex.sheet.options.itemTypeClass[ix];
               item.actionclass = charadex.sheet.options.itemTypeClass[ix];
             }
           }
