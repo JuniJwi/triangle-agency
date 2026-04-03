@@ -119,8 +119,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.log("CONNECTION DATA:", connectionData);
 
             let relJSON = JSON.parse(profile.relationships);
-            let $relContainer = $('#rel-container');
-            const $relTemplate = $('#rel-item');
+            let relContainer = document.getElementById('rel-container');
+            const relTemplate = document.querySelector('.rel-item');
             
             // Name, Hide,	Updated,	Network Lvl,Relationship,	Bonus,	Bonus Description,	Description
             for (let ix in relJSON['Name']) {
@@ -147,18 +147,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                   networked = pipfilled.repeat(Number(relJSON['Network Lvl'][ix])) + pipempty.repeat(9 - Number(relJSON['Network Lvl'][ix]));
                 }
                 // Create the DOM elements
-                let $relCard = $relTemplate.clone(true);
-                $relCard.show().attr('display: "flex";');
-                $relCard.children('.rel-name').text(relJSON['Name'][ix]);
-                $relCard.children('.rel-link').attr('href', charLink);
-                $relCard.children('.rel-title').text(relTitle);
-                $relCard.children('.rel-date').text(date);
-                $relCard.children('.rel-networked').html(networked);
-                $relCard.children('.rel-bonus').text(bonusTitle);
-                $relCard.children('.rel-text').html(relText);
-                $relCard.children('.rel-popover').attr('data-bs-content', connectionInfo[relJSON['Bonus'][ix]])
+                let relCard = relTemplate.cloneNode(true);
+                relCard.setAttribute('style', 'display: "flex";');
+                relCard.querySelector('.rel-name').textContent(relJSON['Name'][ix]);
+                relCard.querySelector('.rel-link').setAttribute('href', charLink);
+                relCard.querySelector('.rel-title').textContent(relTitle);
+                relCard.querySelector('.rel-date').textContent(date);
+                relCard.querySelector('.rel-networked').innerHTML(networked);
+                relCard.querySelector('.rel-bonus').textContent(bonusTitle);
+                relCard.querySelector('.rel-text').innerHTML(relText);
+                relCard.querySelector('.rel-popover').setAttribute('data-bs-content', connectionInfo[relJSON['Bonus'][ix]])
 
-                $relCard.appendTo($relContainer);
+                relContainer.append(relCard);
 
                 // -- update rel fields
                 //    set rel visible
