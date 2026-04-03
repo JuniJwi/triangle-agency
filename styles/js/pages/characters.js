@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                   { profile: charadex.tools.scrub(relJSON['Name'][ix]) }));
 
                 // Rel status and description
-                relCard.querySelector('.rel-desc').textContent = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
+                relCard.querySelector('.rel-desc').setAttribute('data-bs-title', relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--');
                 relCard.querySelector('.rel-desc').setAttribute('data-bs-content', relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : '--');
 
                 // Connection bonus
