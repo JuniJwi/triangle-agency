@@ -77,11 +77,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           
         } else {
           item.infoclass = 'disabled';
-          item.infopopovertitle = '';
-          item.infopopovercontent = '';
+          item.infopopovertitle = ' ';
+          item.infopopovercontent = ' ';
           item.actionclass  = 'disabled';
-          item.actionpopovertitle = '';
-          item.actionpopovercontent = '';
+          item.actionpopovertitle = ' ';
+          item.actionpopovercontent = ' ';
         }
       }
   });
