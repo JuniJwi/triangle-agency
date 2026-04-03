@@ -109,7 +109,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             // gather bonus info
             // ---------------------------//
             // gather connection bonus data
-            // TODO: Make this into a function?
             let connectionData = await charadex.importSheet('connection', charadex.sheet.sysid);
             let connectionInfo = {}
             for (const connection of connectionData) {
@@ -160,37 +159,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 relContainer.append(relCard);
 
-                // -- update rel fields
-                //    set rel visible
-
-                // -- create title link
-
-                // relElement += `<div class="col-md-4 col-12 p-2">
-                //                 <div class="card bg-body-tertiary h-100">
-                //                   <div class="card-header text-center d-flex">
-                //                     <div class="m-auto z-1">
-                //                       <a href="${charLink}"><h3 class="card-title mb-0">${relJSON['Name'][ix]} (${relTitle})</h3></a>
-                //                     </div>
-                //                   </div>
-                //                   <div class="card-body d-flex flex-column flex-fill">
-                //                     <div>${relText}</div>
-                //                     <div class="alert alert-warning mt-2 mb-0 px-3 py-2">
-                //                       <h3 class="span-header text-center text-warning mb-0">${bonusTitle}</h3>
-                //                       <div class="text-center text-warning">${networked}</div>
-                //                       <div>${connectionInfo[relJSON['Bonus'][ix]]}</div>
-                //                     </div>
-                //                   </div>
-                //                   <div class="card-footer text-muted small">
-                //                     <div class="row">
-                //                       <div class="col">Last Updated:</div>
-                //                       <div class="col-auto">${dateFormatted}</div>
-                //                     </div>
-                //                   </div>
-                //                 </div>
-                //               </div>`
               }
             }
-            // $('#rel-container').html(relElement);
           }
         }
       }
