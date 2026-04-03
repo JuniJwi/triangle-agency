@@ -147,18 +147,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                   networked = pipfilled.repeat(Number(relJSON['Network Lvl'][ix])) + pipempty.repeat(9 - Number(relJSON['Network Lvl'][ix]));
                 }
                 // Create the DOM elements
-                let $relCard = $relTemplate.cloneNode(true);
+                let $relCard = $relTemplate.clone(true);
                 $relCard.show();
-                $relCard.children('#rel-name').text(relJSON['Name'][ix]);
-                $relCard.children('#rel-link').attr('href', charLink);
-                $relCard.children('#rel-title').text(relTitle);
-                $relCard.children('#rel-date').text(date);
-                $relCard.children('#rel-networked').html(networked);
-                $relCard.children('#rel-bonus').text(bonusTitle);
-                $relCard.children('#rel-text').html(relText);
-                $relCard.children('#rel-popover').attr('data-bs-content', connectionInfo[relJSON['Bonus'][ix]])
+                $relCard.children('.rel-name').text(relJSON['Name'][ix]);
+                $relCard.children('.rel-link').attr('href', charLink);
+                $relCard.children('.rel-title').text(relTitle);
+                $relCard.children('.rel-date').text(date);
+                $relCard.children('.rel-networked').html(networked);
+                $relCard.children('.rel-bonus').text(bonusTitle);
+                $relCard.children('.rel-text').html(relText);
+                $relCard.children('.rel-popover').attr('data-bs-content', connectionInfo[relJSON['Bonus'][ix]])
 
-                $relContainer.append($relCard);
+                $relContainer.appendTo($relCard);
 
                 // -- update rel fields
                 //    set rel visible
