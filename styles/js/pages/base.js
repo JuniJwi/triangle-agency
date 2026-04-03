@@ -19,4 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('loading page #charadex-body...')
   charadex.tools.loadPage('#charadex-body', 100);
   console.log('✅');
+
+  // Redraw page items during pagination
+  $('.pagination-nav').children('a').each(function( ix) {
+    $(this).on('click', function() {
+      $("[data-bs-toggle='popover']").popover('dispose');
+      charadex.tools.initPopovers();
+      charadex.tools.applyColorData();
+    });
+  });
+  
 });
