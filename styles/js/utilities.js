@@ -394,7 +394,7 @@ charadex.manageData = {
     }
     
     // Import our inventory info for reference
-    let itemArr = await charadex.importSheet(charadex.sheet.pages.items);
+    let itemArr = await charadex.importSheet(charadex.sheet.pages.items, charadex.sheet.sysid);
 
     let inventoryData = [];
     // Check if we have items in our inventory, and if so, attach data.

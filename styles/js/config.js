@@ -442,7 +442,6 @@ charadex.page.masterlist = {
   // This is a special config for their inventory
   characterConfig: {
 
-    sheedID: charadex.sheet.sysid,
     sheetPage: charadex.sheet.pages.items,
     sitePage: 'items',
     dexSelector: 'item',
