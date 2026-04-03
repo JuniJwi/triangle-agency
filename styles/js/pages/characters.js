@@ -125,33 +125,41 @@ document.addEventListener("DOMContentLoaded", async () => {
             for (let ix in relJSON['Name']) {
               if (relJSON['Name'][ix] != '' && relJSON['Hide'][ix] === 'FALSE') {
 
+                // Create the DOM elements
+                let relCard = relTemplate.cloneNode(true);
+                relCard.setAttribute('style', 'display: "flex";');
+
+                // Title and profile link
+                relCard.querySelector('.rel-link').textContent = relJSON['Name'][ix];
+                relCard.querySelector('.rel-link').setAttribute('href', charadex.url.addUrlParameters(
+                  charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
+                  { profile: charadex.tools.scrub(relJSON['Name'][ix]) }));
+
+                // Rel status and description
+                relCard.querySelector('.rel-desc').textContent = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
+                relCard.querySelector('.rel-desc').setAttribute('data-bs-content', relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : '--');
+
+                // Connection bonus
+                relCard.querySelector('.rel-bonus').textContent = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
+                relCard.querySelector('.rel-bonus').setAttribute('data-bs-content', relJSON['Bonus'][ix] ? charadex.manageData.convertMarkdown(connectionInfo[relJSON['Bonus'][ix]]) : '--');
+                
+                // We have to parse the "serial" date from google sheets.
                 var date = charadex.tools.serialNumberToDate(Number(relJSON['Updated'][ix]));
+                // Then we can take the date object and format it for display.
                 date = new Intl.DateTimeFormat("en-US", {
                   year: "numeric",
                   month: "2-digit",
                   day: "2-digit"
                 }).format(date);
-
+                relCard.querySelector('.rel-date').textContent = date;
+                
                 let networked = '';
                 if (!isNaN(relJSON['Network Lvl'][ix])) {
                   const pipfilled = `<i class="fa-solid fa-circle fa-xs"></i>`
                   const pipempty = `<i class="fa-regular fa-circle fa-xs"></i>`
                   networked = pipfilled.repeat(Number(relJSON['Network Lvl'][ix])) + pipempty.repeat(9 - Number(relJSON['Network Lvl'][ix]));
                 }
-                
-                // Create the DOM elements
-                let relCard = relTemplate.cloneNode(true);
-                relCard.setAttribute('style', 'display: "flex";');
-                relCard.querySelector('.rel-link').textContent = relJSON['Name'][ix];
-                relCard.querySelector('.rel-link').setAttribute('href', charadex.url.addUrlParameters(
-                  charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
-                  { profile: charadex.tools.scrub(relJSON['Name'][ix]) }));
-                relCard.querySelector('.rel-desc').textContent = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
-                relCard.querySelector('.rel-desc').setAttribute('data-bs-content', relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `--`);
-                relCard.querySelector('.rel-date').textContent = date;
                 relCard.querySelector('.rel-networked').innerHTML = networked;
-                relCard.querySelector('.rel-bonus').textContent = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
-                relCard.querySelector('.rel-bonus').setAttribute('data-bs-content', connectionInfo[relJSON['Bonus'][ix]]);
 
                 relContainer.append(relCard);
 
