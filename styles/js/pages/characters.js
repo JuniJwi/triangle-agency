@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             console.log("CONNECTION DATA:", connectionData);
 
-            let relJSON = JSON.parse(profile.relationships.replace('/[\n\r]/g', "\n"));
+            let relJSON = JSON.parse(profile.relationships.replace('/[\n\r]/g', ";;;"));
             let relContainer = document.getElementById('rel-container');
             const relTemplate = document.querySelector('.rel-item');
             
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 // Rel status and description
                 relCard.querySelector('.rel-desc').setAttribute('data-bs-title', relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--');
-                relCard.querySelector('.rel-desc').setAttribute('data-bs-content', relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : '--');
+                relCard.querySelector('.rel-desc').setAttribute('data-bs-content', relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix].replace(';;;', '\n')) : '--');
 
                 // Connection bonus
                 relCard.querySelector('.rel-bonus').textContent = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
