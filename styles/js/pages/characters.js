@@ -124,13 +124,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Name, Hide,	Updated,	Network Lvl,Relationship,	Bonus,	Bonus Description,	Description
             for (let ix in relJSON['Name']) {
               if (relJSON['Name'][ix] != '' && relJSON['Hide'][ix] === 'FALSE') {
-                // Set the character link
-                const charLink = charadex.url.addUrlParameters(
-                  charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
-                  { profile: charadex.tools.scrub(relJSON['Name'][ix]) });
-                const relTitle = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
-                const relText = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
-                const bonusTitle = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
 
                 var date = charadex.tools.serialNumberToDate(Number(relJSON['Updated'][ix]));
                 date = new Intl.DateTimeFormat("en-US", {
@@ -145,17 +138,20 @@ document.addEventListener("DOMContentLoaded", async () => {
                   const pipempty = `<i class="fa-regular fa-circle fa-xs"></i>`
                   networked = pipfilled.repeat(Number(relJSON['Network Lvl'][ix])) + pipempty.repeat(9 - Number(relJSON['Network Lvl'][ix]));
                 }
+                
                 // Create the DOM elements
                 let relCard = relTemplate.cloneNode(true);
                 relCard.setAttribute('style', 'display: "flex";');
                 relCard.querySelector('.rel-link').textContent = relJSON['Name'][ix];
-                relCard.querySelector('.rel-link').setAttribute('href', charLink);
-                relCard.querySelector('.rel-title').textContent = relTitle;
+                relCard.querySelector('.rel-link').setAttribute('href', charadex.url.addUrlParameters(
+                  charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
+                  { profile: charadex.tools.scrub(relJSON['Name'][ix]) }));
+                relCard.querySelector('.rel-title').textContent = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
                 relCard.querySelector('.rel-date').textContent = date;
                 relCard.querySelector('.rel-networked').innerHTML = networked;
-                relCard.querySelector('.rel-bonus').textContent = bonusTitle;
+                relCard.querySelector('.rel-bonus').textContent = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
                 relCard.querySelector('.rel-bonus').setAttribute('data-bs-content', connectionInfo[relJSON['Bonus'][ix]]);
-                relCard.querySelector('.rel-text').innerHTML = relText;
+                relCard.querySelector('.rel-text').innerHTML = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
 
                 relContainer.append(relCard);
 
