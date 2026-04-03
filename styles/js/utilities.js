@@ -67,7 +67,11 @@ charadex.tools = {
    */
   applyColorData() {
     $("[data-cd-color]").each(function () {
-      const color = $(this).data().cdColor;
+      let color = $(this).data().cdColor;
+      if (color === 'disabled') {
+        $(this).prop("disabled",true);
+        color = 'secondary';
+      }
       const classname = $(this).data().cdClass;
       $(this).addClass(`${classname}-${color}`);
     });

@@ -33,13 +33,42 @@ document.addEventListener("DOMContentLoaded", async () => {
           for (let ix in charadex.sheet.options.itemTypes) {
             if (charadex.sheet.options.itemTypes[ix] === item.type) {
               item.profileclass = charadex.sheet.options.itemTypeClass[ix];
+              item.infoclass = charadex.sheet.options.itemTypeClass[ix];
               item.actionclass = charadex.sheet.options.itemTypeClass[ix];
             }
           }
 
           // -- different item types have different popover construction
           if (item.type === 'Ability') {
-            item.actionpopovertitle = item.action
+            item.infopopovertitle = item.question;
+            item.infopopovercontent = `<ol>
+                                         <li>${item.answer1} <i class="fa-solid fa-arrow-right"></i> ${item.page1}</li>
+                                         <li>${item.answer2} <i class="fa-solid fa-arrow-right"></i> ${item.page2}</li>
+                                       </ol>`;
+            item.actionpopovertitle = item.action;
+            item.actionpopovercontent = `<div class="row">
+                                        <div class="col">
+                                          <div class="alert alert-success">
+                                            <h6>Success</h6>
+                                            ${charadex.manageData.convertMarkdown(item.success)}
+                                          </div>
+                                        </div>
+                                        <div class="col">
+                                          <div class="alert alert-info">
+                                            <h6>${item.bonus}</h6>
+                                            ${charadex.manageData.convertMarkdown(item.effect)}
+                                          </div>
+                                        </div>
+                                        <div class="col">
+                                          <div class="alert alert-danger">
+                                            <h6>Failure</h6>
+                                            ${charadex.manageData.convertMarkdown(item.failure)}
+                                          </div>
+                                        </div>
+                                      </div>`;
+          } else if (item.type === 'Requisition') {
+            item.infoclass = 'disabled';
+            item.actionpopovertitle = item.action;
             item.actionpopovercontent = `<div class="row">
                                         <div class="col">
                                           <div class="alert alert-success">
@@ -53,17 +82,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                                             ${charadex.manageData.convertMarkdown(item.failure)}
                                           </div>
                                         </div>
-                                        <div class="col-12">
-                                          <div class="alert alert-info">
-                                            <h6>${item.bonus}</h6>
-                                            ${charadex.manageData.convertMarkdown(item.effect)}
-                                          </div>
-                                        </div>
-                                      </div>`
-          } else if (item.type === '') {
+                                      </div>`;
             
           } else {
-            
+            item.infoclass = 'disabled';
+            item.actionpopovertitle = item.action;
+            item.actionpopovercontent = item.description;
           }
         }
 
