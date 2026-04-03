@@ -40,9 +40,14 @@ charadex.sheet = {
   options: { // available options for values in your sheets used in search filters
     roles: ['PC', 'NPC'],
     statuses: ['Active', 'Out of Date', 'Retired', 'Dead', 'WIP'],
-    category: ['All', 'Agency', 'Urgency', 'Connection'],
+
+    category:      ['All', 'Agency', 'Urgency', 'Connection'],
+    categoryClass: ['dark', 'danger', 'info', 'warning'],
+
     subcategory: ['All', 'Human', 'Anomaly', 'Resonant', 'Other'],
-    itemTypes: ['All', 'Currency', 'Requisition', 'Agency', 'Urgency', 'Ability', 'Misc'],
+
+    itemTypes:     ['All', 'Currency', 'Requisition', 'Agency', 'Urgency', 'Ability', 'Misc'],
+    itemTypeClass: ['dark', 'dark', 'danger', 'danger', 'info', 'info', 'secondary'],
     emotions: ['Neutral', 'Happy', 'Manic', 'Angry', 'Sad', 'Nervous', 'Stressed', 'Embarrassed', 'Skeptical', 'Signature'],
   }
 

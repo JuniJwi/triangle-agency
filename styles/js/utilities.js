@@ -117,6 +117,8 @@ charadex.tools = {
    * 
    * All data with the word `toggle`, `check`, or `active` get true/false on data-cd-bool.
    * 
+   * All data with the word `popover`, `check`, or `active` get true/false on data-cd-bool.
+   * 
    * @param {Array} sheetArray The google sheet array of data.
    * @return {Array} Sheet data with adjusted special element rules.
    */
@@ -134,6 +136,12 @@ charadex.tools = {
       }
       if (classArr[i].includes('toggle') || classArr[i].includes('check') || classArr[i].includes('active')) {
         newArr[i] = { name: classArr[i], attr: 'data-cd-bool' };
+      }
+      if (classArr[i].includes('popover') && classArr[i].includes('content')) {
+        newArr[i] = { name: classArr[i], attr: 'data-bs-content' };
+      }
+      if (classArr[i].includes('popover') && classArr[i].includes('title')) {
+        newArr[i] = { name: classArr[i], attr: 'data-bs-title' };
       }
     }
 

@@ -22,9 +22,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         let profile = listData.profileArray[0];
 
+        // -------------------------- //
         // Inventory
+        // ---------------------------//
         let inventoryData = await charadex.manageData.readInventoryLog(profile.characterlog);
 
+        // Items
         charadex.initialize.groupGallery(
           charadex.page.masterlist.characterConfig,
           inventoryData,
@@ -32,6 +35,43 @@ document.addEventListener("DOMContentLoaded", async () => {
           charadex.url.getPageUrl('items')
         );
         console.log('Initialized inventory gallery!');
+
+        // For each item, we have specific values we need to add.
+        // -- first, determine class styles based on category
+        for (let ix in charadex.sheet.options.itemType) {
+          if (charadex.sheet.options.itemType[ix] === profile.type) {
+            profile.class = charadex.sheet.options.itemTypeClass[ix];
+          }
+        }
+
+        // -- different item types have different popover construction
+        if (profile.type === 'Ability') {
+          profile.actionpopovertitle = profile.action
+          profile.actionpopovercontent = `<div class="row">
+                                      <div class="col">
+                                        <div class="alert alert-success">
+                                          <h6>Success</h6>
+                                          ${charadex.tools.convertMarkdown(profile.success)}
+                                        </div>
+                                      </div>
+                                      <div class="col">
+                                        <div class="alert alert-danger">
+                                          <h6>Failure</h6>
+                                          ${charadex.tools.convertMarkdown(profile.failure)}
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="alert alert-info">
+                                          <h6>${profile.bonus}</h6>
+                                          ${charadex.tools.convertMarkdown(profile.effect)}
+                                        </div>
+                                      </div>
+                                    </div>`
+        } else if (profile.type === '') {
+          
+        } else {
+          
+        }
 
         // Logs
         if (charadex.tools.checkArray(profile.characterlog)) {
@@ -46,7 +86,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         let pageUrl = charadex.url.getPageUrl(charadex.page.player.sitePage);
         $('.playerlink').attr('href', charadex.url.addUrlParameters(pageUrl, { profile: profile.player }));
 
-        // Oh lordt, it's rels time =========================================
+        // -------------------------- //
+        // Relationships
+        // ---------------------------//
         if (profile.relationships && typeof profile.relationships === 'string') {
 
           // old way of doing this. TODO: Remove when everyone's sheets are updated.
@@ -131,7 +173,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 // Create the DOM elements
                 let relCard = relTemplate.cloneNode(true);
-                relCard.setAttribute('style', 'display: "flex";');
 
                 // Title and profile link
                 relCard.querySelector('.rel-link').textContent = relJSON['Name'][ix];
