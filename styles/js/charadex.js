@@ -181,6 +181,14 @@ charadex.initialize.page = async (dataArr, config, dataCallback, listCallback, c
     // Initialize Gallery
     let galleryList = list.initializeGallery(charadexData, additionalListConfigs);
 
+    // Add refresh
+    galleryList.on('updated', (list) => {
+      // re-render items
+      $("[data-bs-toggle='popover']").popover('dispose');
+      charadex.tools.initPopovers();
+      charadex.tools.applyColorData();
+    })
+
     // Initialize filters and search
     if ((config.filters?.toggle ?? false) && filters) filters.initializeFilters(galleryList);
     if ((config.search?.toggle ?? false) && search) search.initializeSearch(galleryList);
@@ -273,6 +281,14 @@ charadex.initialize.groupGallery = async function (config, dataArray, groupBy, c
       let groupListManager = charadex.buildList(groupListSelector);
       let groupList = groupListManager.initializeGallery(groupArray[group], itemSelector, containerSelector);
 
+      // Add refresh
+      groupList.on('updated', (list) => {
+        // re-render items
+        $("[data-bs-toggle='popover']").popover('dispose');
+        charadex.tools.initPopovers();
+        charadex.tools.applyColorData();
+      })
+      
       // Add filters & Search
       if ((config.filters?.toggle ?? false) && filters) filters.initializeFilters(groupList);
       if ((config.search?.toggle ?? false) && search) search.initializeSearch(groupList);
