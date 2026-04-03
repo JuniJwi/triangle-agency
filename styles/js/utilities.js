@@ -65,20 +65,6 @@ charadex.tools = {
   /**
    * Apply color classes.
    */
-  initPopovers() {
-    $('[data-bs-toggle="popover"]').popover();
-    $('[data-bs-toggle="popover"]').on('keydown', function (e) {
-      if (e.code === "Enter") {
-        e.preventDefault();
-        $(this).popover('toggle');
-      }
-    });
-    console.log("Initialized popovers.")
-  },
-
-  /**
-   * Apply color classes.
-   */
   applyColorData() {
     $("[data-cd-color]").each(function () {
       let color = $(this).data().cdColor;

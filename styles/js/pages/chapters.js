@@ -129,7 +129,14 @@ document.addEventListener("DOMContentLoaded", async () => {
           $speaker.empty();
           $speaker.append(speakerlabel);
           
-          charadex.tools.initPopovers();
+          // init popovers
+          $('[data-bs-toggle="popover"]').popover();
+          $('[data-bs-toggle="popover"]').on('keydown', function (e) {
+            if (e.code === "Enter") {
+              e.preventDefault();
+              $(this).popover('toggle');
+            }
+          });
         }
 
         function sceneChange() {
