@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
                 // Create the DOM elements
                 let $relCard = $relTemplate.clone(true);
-                $relCard.show();
+                $relCard.show().attr('display: "flex";');
                 $relCard.children('.rel-name').text(relJSON['Name'][ix]);
                 $relCard.children('.rel-link').attr('href', charLink);
                 $relCard.children('.rel-title').text(relTitle);
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 $relCard.children('.rel-text').html(relText);
                 $relCard.children('.rel-popover').attr('data-bs-content', connectionInfo[relJSON['Bonus'][ix]])
 
-                $relContainer.appendTo($relCard);
+                $relCard.appendTo($relContainer);
 
                 // -- update rel fields
                 //    set rel visible
