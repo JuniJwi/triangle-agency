@@ -40,28 +40,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           // -- different item types have different popover construction
           if (item.type === 'Ability') {
-            item.action = `USE`
             item.infopopovertitle = item.question;
             item.infopopovercontent = `<ol>
                                          <li>${item.answer1} <i class="fa-solid fa-arrow-right"></i> ${item.page1}</li>
                                          <li>${item.answer2} <i class="fa-solid fa-arrow-right"></i> ${item.page2}</li>
                                        </ol>`;
             item.actionpopovertitle = item.action;
-            const success = item.success ? `<div class="col">
+            item.action = `USE`;
+            const success = item.success ? `<div class="col-12">
                                               <div class="alert alert-success">
                                                 <h6>Success</h6>
                                                 ${charadex.manageData.convertMarkdown(item.success)}
                                               </div>
                                             </div>` : '';
-            const bonus = item.bonus ? `<div class="col">
+            const bonus = item.bonus ? `<div class="col-12">
                                           <div class="alert alert-info">
                                             <h6>${item.bonus}</h6>
                                             ${charadex.manageData.convertMarkdown(item.effect)}
                                           </div>
                                         </div>` : '';
-            const failure = item.failure ? `<div class="col">
+            const failure = item.failure ? `<div class="col-12">
                                               <div class="alert alert-danger">
-                                                <h6>Warning</h6>
+                                                <h6>Failure</h6>
                                                 ${charadex.manageData.convertMarkdown(item.failure)}
                                               </div>
                                             </div>` : '';
@@ -74,13 +74,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             item.infopopovertitle = 'Info';
             item.infopopovercontent = item.question;
             item.actionpopovertitle = item.action;
-            const success = item.success ? `<div class="col">
+            const success = item.success ? `<div class="col-12">
                                               <div class="alert alert-success">
                                                 <h6>Success</h6>
                                                 ${charadex.manageData.convertMarkdown(item.success)}
                                               </div>
                                             </div>` : '';
-            const failure = item.failure ? `<div class="col">
+            const failure = item.failure ? `<div class="col-12">
                                               <div class="alert alert-danger">
                                                 <h6>Failure</h6>
                                                 ${charadex.manageData.convertMarkdown(item.failure)}
