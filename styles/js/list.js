@@ -30,14 +30,6 @@ charadex.buildList = (selector = 'charadex') => {
     // Create list classes
     listConfig.valueNames =  charadex.tools.createListClasses(galleryArray);
 
-    // Callback event on update
-    galleryArray.on('update', () => {
-      // Redraw page items during pagination
-      $("[data-bs-toggle='popover']").popover('dispose');
-      charadex.tools.initPopovers();
-      charadex.tools.applyColorData();
-    });
-
     // Return the list
     return new List(gallerySelector || `${selector}-gallery`, {...listConfig, ...additionalListConfigs}, galleryArray);
 
