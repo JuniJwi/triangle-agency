@@ -146,12 +146,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 relCard.querySelector('.rel-link').setAttribute('href', charadex.url.addUrlParameters(
                   charadex.url.getPageUrl(charadex.page.masterlist.sitePage),
                   { profile: charadex.tools.scrub(relJSON['Name'][ix]) }));
-                relCard.querySelector('.rel-title').textContent = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
+                relCard.querySelector('.rel-desc').textContent = relJSON['Relationship'][ix] ? relJSON['Relationship'][ix] : '--';
+                relCard.querySelector('.rel-desc').setAttribute('data-bs-content', relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `--`);
                 relCard.querySelector('.rel-date').textContent = date;
                 relCard.querySelector('.rel-networked').innerHTML = networked;
                 relCard.querySelector('.rel-bonus').textContent = relJSON['Bonus'][ix] ? relJSON['Bonus'][ix] : '--';
                 relCard.querySelector('.rel-bonus').setAttribute('data-bs-content', connectionInfo[relJSON['Bonus'][ix]]);
-                relCard.querySelector('.rel-text').innerHTML = relJSON['Description'][ix] ? charadex.manageData.convertMarkdown(relJSON['Description'][ix]) : `<span class="text-muted">--</span>`;
 
                 relContainer.append(relCard);
 
