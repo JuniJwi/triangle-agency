@@ -177,7 +177,7 @@ charadex.page.prompts = {
   sheetPage: charadex.sheet.pages.prompts,
   sitePage: 'prompts',
   dexSelector: 'prompt',
-  profileProperty: 'title',
+  profileProperty: 'name',
 
   sort: {
     toggle: true,
@@ -208,7 +208,7 @@ charadex.page.prompts = {
   search: {
     toggle: true,
     filterToggle: false,
-    parameters: ['Title']
+    parameters: ['Name']
   },
 
   prevNext: {
@@ -216,7 +216,7 @@ charadex.page.prompts = {
   },
   
   fillBlanks: [
-    'title',
+    'name',
     'startdate',
     'enddate',
     'summary',
@@ -248,7 +248,7 @@ charadex.page.lore = {
   sheetPage: charadex.sheet.pages.lore,
   sitePage: 'missionreports',
   dexSelector: 'charadex',
-  profileProperty: 'title',
+  profileProperty: 'name',
 
   sort: {
     toggle: false,
@@ -277,7 +277,7 @@ charadex.page.lore = {
   search: {
     toggle: true,
     filterToggle: true,
-    parameters: ['All', 'Title', 'Tags']
+    parameters: ['All', 'Name', 'Tags']
   },
 
   prevNext: {
@@ -285,7 +285,7 @@ charadex.page.lore = {
   },
   
   fillBlanks: [
-    'title',
+    'name',
     'summary',
     'behavior',
     'focus',
@@ -576,12 +576,12 @@ charadex.page.chapters = {
   sheetPage: charadex.sheet.pages.chapters,
   sitePage: 'chapters',
   dexSelector: 'charadex',
-  profileProperty: 'title',
+  profileProperty: 'name',
 
   // Dex Options
   sort: {
     toggle: false,
-    sortProperty: 'title',
+    sortProperty: 'name',
     order: 'asc',
     parameters: []
   },
@@ -608,7 +608,7 @@ charadex.page.chapters = {
   search: {
     toggle: true,
     filterToggle: true,
-    parameters: ['Title', 'Characters']
+    parameters: ['Name', 'Characters']
   },
 
   prevNext: {
