@@ -84,5 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   );
 
+  charadex.tools.initPopovers();
+  charadex.tools.applyColorData();
   charadex.tools.loadPage('.softload', 100);
 });

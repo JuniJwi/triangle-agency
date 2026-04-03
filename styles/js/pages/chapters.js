@@ -128,14 +128,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           speakerlabel.appendChild(h1);
           $speaker.empty();
           $speaker.append(speakerlabel);
-          // init popovers
-          $('[data-bs-toggle="popover"]').popover();
-          $('[data-bs-toggle="popover"]').on('keydown', function (e) {
-            if (e.code === "Enter") {
-              e.preventDefault();
-              $(this).popover('toggle');
-            }
-          });
+          
+          charadex.tools.initPopovers();
         }
 
         function sceneChange() {
