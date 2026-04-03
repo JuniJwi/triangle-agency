@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 //               </div>`
               }
             }
-            $('#rel-container').html(relElement);
+            // $('#rel-container').html(relElement);
           }
         }
       }
