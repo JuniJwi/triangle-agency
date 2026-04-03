@@ -66,7 +66,8 @@ charadex.tools = {
    * Initialize popovers.
    */
   initPopovers() {
-    $('.popover').dispose();
+    $('[data-bs-toggle="popover"]').popover('dispose');
+    $('.popover').remove();
     $('[data-bs-toggle="popover"]').popover();
     $('[data-bs-toggle="popover"]').on('keydown', function (e) {
       if (e.code === "Enter") {
