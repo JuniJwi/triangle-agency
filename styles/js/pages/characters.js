@@ -149,14 +149,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Create the DOM elements
                 let relCard = relTemplate.cloneNode(true);
                 relCard.setAttribute('style', 'display: "flex";');
-                relCard.querySelector('.rel-name').textContent = relJSON['Name'][ix];
+                relCard.querySelector('.rel-link').textContent = relJSON['Name'][ix];
                 relCard.querySelector('.rel-link').setAttribute('href', charLink);
                 relCard.querySelector('.rel-title').textContent = relTitle;
                 relCard.querySelector('.rel-date').textContent = date;
                 relCard.querySelector('.rel-networked').innerHTML = networked;
                 relCard.querySelector('.rel-bonus').textContent = bonusTitle;
+                relCard.querySelector('.rel-bonus').setAttribute('data-bs-content', connectionInfo[relJSON['Bonus'][ix]]);
                 relCard.querySelector('.rel-text').innerHTML = relText;
-                relCard.querySelector('.rel-popover').setAttribute('data-bs-content', connectionInfo[relJSON['Bonus'][ix]])
 
                 relContainer.append(relCard);
 
