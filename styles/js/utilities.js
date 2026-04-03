@@ -63,6 +63,20 @@ charadex.tools = {
   },
 
   /**
+   * Initialize popovers.
+   */
+  initPopovers() {
+    $('[data-bs-toggle="popover"]').popover();
+    $('[data-bs-toggle="popover"]').on('keydown', function (e) {
+      if (e.code === "Enter") {
+        e.preventDefault();
+        $(this).popover('toggle');
+      }
+    });
+    console.log("Initialized popovers.")
+  },
+
+  /**
    * Apply color classes.
    */
   applyColorData() {

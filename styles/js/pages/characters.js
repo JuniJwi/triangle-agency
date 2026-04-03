@@ -260,15 +260,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location = hash;
   }
 
-  // init popovers
-  $('[data-bs-toggle="popover"]').popover();
-  $('[data-bs-toggle="popover"]').on('keydown', function (e) {
-    if (e.code === "Enter") {
-      e.preventDefault();
-      $(this).popover('toggle');
-    }
-  });
-
+  charadex.tools.initPopovers();
   charadex.tools.applyColorData();
   charadex.tools.loadPage('.softload', 100);
 });
